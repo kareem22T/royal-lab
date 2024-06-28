@@ -39,16 +39,6 @@ class CartController extends Controller
             $product_if_in_user_cart = $user->cart()->where("product_id", $request->product_id)->first();
             if ($product_if_in_user_cart) {
                 $prod_quantity = (int) $product_if_in_user_cart->quantity + (int) $quantity;
-                if ((int) $prod_quantity > (int) $product->quantity)
-                    return $this->handleResponse(
-                        true,
-                        "هذه الكمية غير متوفرة من الخدمة",
-                        [],
-                        [],
-                        [
-                            "في حالة كان الخدمة موجود في عربة المستخم فالكمية تزداد بواحد او بالعدد المرسل من المستخدم في ال quantity"
-                        ]
-                    );
 
                 $product_if_in_user_cart->quantity = $prod_quantity;
                 $product_if_in_user_cart->save();
