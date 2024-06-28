@@ -241,9 +241,26 @@
                         <a class="collapse-item" href="{{ route("admin.orders.show.all") }}">All</a>
                         <a class="collapse-item" href="{{ route("admin.orders.show.review") }}">Under review</a>
                         <a class="collapse-item" href="{{ route("admin.orders.show.confirmed") }}">Confirmed</a>
-                        <a class="collapse-item" href="{{ route("admin.orders.show.delivary") }}">On delivery</a>
                         <a class="collapse-item" href="{{ route("admin.orders.show.completed") }}">Completed</a>
                         <a class="collapse-item" href="{{ route("admin.orders.show.canceled") }}">Canceled</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#asdadf"
+                    aria-expanded="true" aria-controls="asdadf">
+                    <i class="fas fa-fw fa-receipt"></i>
+                    <span>Appointments</span>
+                </a>
+                <div id="asdadf" class="collapse" aria-labelledby="asdadf" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.all") }}">All</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.review") }}">Under review</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.confirmed") }}">Confirmed</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.completed") }}">Completed</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.canceled") }}">Canceled</a>
                     </div>
                 </div>
             </li>

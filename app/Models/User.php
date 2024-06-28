@@ -40,24 +40,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Cart', 'user_id');
     }
 
-    public function wishlist()
-    {
-        return $this->hasMany('App\Models\Wishlist', 'user_id');
-    }
-
     public function orders()
     {
         return $this->hasMany('App\Models\Order', 'user_id');
     }
 
-    public function withdrawRequests()
+    public function appointments()
     {
-        return $this->hasMany('App\Models\Money_request', 'user_id');
+        return $this->hasMany('App\Models\Appointment', 'user_id');
     }
 
-    public function transactions()
-    {
-        return $this->hasMany('App\Models\Transaction', 'user_id');
-    }
 
 }

@@ -7,11 +7,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\AppointmentsController;
 use App\Http\Controllers\Admin\MoneyRequestsContrller;
 use App\Http\Controllers\Admin\BacnnerController;
 use App\Http\Middleware\GuestAdminMiddleware;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\OrdersController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -69,6 +70,7 @@ Route::prefix('admin')->group(function () {
             Route::get("/delete/{id}", [ProductsController::class, "deleteIndex"])->name("admin.products.delete.confirm");
             Route::post("/delete", [ProductsController::class, "delete"])->name("admin.products.delete");
         });
+
         // Orders
         Route::prefix('orders')->group(function () {
             Route::get("/order/{id}", [OrdersController::class, "order"])->name("admin.orders.order.details");
@@ -84,6 +86,23 @@ Route::prefix('admin')->group(function () {
             Route::get("/order/cancel/{id}", [OrdersController::class, "cancelIndex"])->name("admin.orders.cancel");
             Route::post("/order/cancel/confirm/{id}", [OrdersController::class, "cancel"])->name("admin.orders.cancel.post");
             Route::get("/order/success/{id}", [OrdersController::class, "successIndex"])->name("admin.orders.success");
+        });
+
+        // Appointments
+        Route::prefix('appointments')->group(function () {
+            Route::get("/appointment/{id}", [AppointmentsController::class, "appointment"])->name("admin.appointments.appointment.details");
+            Route::get("/all", [AppointmentsController::class, "index"])->name("admin.appointments.show.all");
+            Route::get("/review", [AppointmentsController::class, "indexReview"])->name("admin.appointments.show.review");
+            Route::get("/confirmed", [AppointmentsController::class, "indexConfirmed"])->name("admin.appointments.show.confirmed");
+            Route::get("/delivary", [AppointmentsController::class, "indexDelivary"])->name("admin.appointments.show.delivary");
+            Route::get("/completed", [AppointmentsController::class, "indexCompleted"])->name("admin.appointments.show.completed");
+            Route::get("/canceled", [AppointmentsController::class, "indexCanceled"])->name("admin.appointments.show.canceled");
+
+            Route::get("/appointment/approve/{id}", [AppointmentsController::class, "approveIndex"])->name("admin.appointments.approve");
+            Route::post("/appointment/approve/confirm/{id}", [AppointmentsController::class, "approve"])->name("admin.appointments.approve.post");
+            Route::get("/appointment/cancel/{id}", [AppointmentsController::class, "cancelIndex"])->name("admin.appointments.cancel");
+            Route::post("/appointment/cancel/confirm/{id}", [AppointmentsController::class, "cancel"])->name("admin.appointments.cancel.post");
+            Route::get("/appointment/success/{id}", [AppointmentsController::class, "successIndex"])->name("admin.appointments.success");
         });
     });
 });
