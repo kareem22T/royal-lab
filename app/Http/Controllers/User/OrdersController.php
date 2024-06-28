@@ -39,6 +39,7 @@ class OrdersController extends Controller
                 "recipient_address" => ["required"],
                 "recipient_name" => ["required", "string"],
                 "recipient_phone" => ["required"],
+                "order_type" => ["required"],
             ], [
                 "your_name.required" => "الاسم مطلوب",
                 "your_phone.required" => "رقم الهاتف مطلوب",
@@ -78,7 +79,7 @@ class OrdersController extends Controller
                 "recipient_phone"               => $request->recipient_phone,
                 "recipient_address"             => $request->recipient_address,
                 "sub_total"                     => $sub_total,
-                "order_type"                     => $order_type,
+                "order_type"                     => $request->order_type,
                 "user_id"                       => $user->id,
                 "status"                        => 1,
             ]);
