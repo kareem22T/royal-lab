@@ -200,9 +200,7 @@ class CartController extends Controller
 
         if ($cart->count() > 0)
             foreach ($cart as $item) {
-                $item_product = $item->product()->with(["gallery" => function ($q) {
-                    $q->take(1);
-                }])->first();
+                $item_product = $item->product()->first();
                 if ($item_product) :
                     $item->total = ((int) $item_product->price * (int) $item->quantity);
                     $sub_total += $item->total;
