@@ -35,7 +35,7 @@
                                 <td>{{ $appointment->name }}</td>
                                 <td>{{ $appointment->phone }}</td>
                                 <td>{{ $appointment->age }}</td>
-                                <td>{{ $appointment->status == 1 ? "Under Review" : ($appointment->status == 2 ? "Confirmed" : ($appointment->status == 3 ? "On Shipping" : ($appointment->status == 4 ? "Completed" : ($appointment->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
+                                <td>{{ $appointment->status == 1 ? "Under Review" : ($appointment->status == 2 ? "Confirmed" : ($appointment->status == 3 ? "Completed" : ($appointment->status == 4 ? "Completed" : ($appointment->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
                                 <td>{{ $appointment->date }}</td>
                                 <td>
                                 <a href="{{ route("admin.appointments.appointment.details", ["id" => $appointment->id]) }}" class="btn btn-success">Show</a>

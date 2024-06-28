@@ -8,6 +8,7 @@ use App\Http\Controllers\User\ProductsController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\OrdersController;
+use App\Http\Controllers\User\VisitsController;
 use App\Http\Controllers\User\AppointmentsController;
 use App\Http\Controllers\User\ConsultationController;
 use App\Http\Controllers\User\TransactionsController;
@@ -57,6 +58,16 @@ Route::get("/orders/user/search/all", [OrdersController::class, "searchOrdersAll
 Route::get("/orders/user/search/pagination", [OrdersController::class, "searchOrdersPagination"])->middleware('auth:sanctum');
 Route::post("/orders/user/request/withdraw", [OrdersController::class, "requestMoney"])->middleware('auth:sanctum');
 Route::get("/orders/user/request/withdraw/get", [OrdersController::class, "getRequests"])->middleware('auth:sanctum');
+
+// Visits endpoints
+Route::post("/visits/place", [VisitsController::class, "placeVisit"])->middleware('auth:sanctum');
+Route::get("/visits/visit/{id}", [VisitsController::class, "visit"])->middleware('auth:sanctum');
+Route::get("/visits/user/all", [VisitsController::class, "visitsAll"])->middleware('auth:sanctum');
+Route::get("/visits/user/pagination", [VisitsController::class, "visitsPagination"])->middleware('auth:sanctum');
+Route::get("/visits/user/search/all", [VisitsController::class, "searchVisitsAll"])->middleware('auth:sanctum');
+Route::get("/visits/user/search/pagination", [VisitsController::class, "searchVisitsPagination"])->middleware('auth:sanctum');
+Route::post("/visits/user/request/withdraw", [VisitsController::class, "requestMoney"])->middleware('auth:sanctum');
+Route::get("/visits/user/request/withdraw/get", [VisitsController::class, "getRequests"])->middleware('auth:sanctum');
 
 // Appointments endpoints
 Route::post("/appointments/place", [AppointmentsController::class, "placeAppointment"])->middleware('auth:sanctum');

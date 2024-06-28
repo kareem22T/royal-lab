@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Order', 'user_id');
     }
 
+    public function visits()
+    {
+        return $this->hasMany('App\Models\Visit', 'user_id');
+    }
+
     public function appointments()
     {
         return $this->hasMany('App\Models\Appointment', 'user_id');

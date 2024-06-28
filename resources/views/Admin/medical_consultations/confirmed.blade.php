@@ -3,7 +3,7 @@
 @section("title", "Appointments - Confirmed")
 
 @php
-    $appointments = App\Models\Appointment::latest()->with("user")->where("status", 2)->paginate(15);
+    $medical_consultations = App\Models\Appointment::latest()->with("user")->where("status", 2)->paginate(15);
 @endphp
 
 @section("content")
@@ -14,45 +14,41 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive p-2">
-            <table class="table table-bconsultationed" width="100%" cellspacing="0" style="white-space: nowrap;">
+            <table class="table table-bmedical_consultationed" width="100%" cellspacing="0" style="white-space: nowrap;">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Booked by</th>
+                        <th>Doctor</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Created at</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($medical_consultations as $medical_consultation)
                         <tr>
-                            <th>Booked by</th>
-                            <th>Doctor</th>
-                            <th>Specialization</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Created at</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($consultations as $consultation)
-                            <tr>
-                                <td>{{ $consultation->user ? $consultation->user->name : "Missing" }}</td>
-                                <td>{{ $consultation->doctor?->name ?? "Missing" }}</td>
-                                <td>{{ $consultation->specialization?->name ?? "Missing" }}</td>
-                                <td>{{ $consultation->status == 1 ? "Under Review" : ($consultation->status == 2 ? "Confirmed" : ($consultation->status == 3 ? "On Shipping" : ($consultation->status == 4 ? "Completed" : ($consultation->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
-                                <td>{{ $consultation->date }}</td>
-                                <td>{{ $consultation->created_at }}</td>
-                                <td>
-                                <a href="{{ route("admin.appointments.appointment.details", ["id" => $appointment->id]) }}" class="btn btn-success">Show</a>
+                            <td>{{ $medical_consultation->user ? $medical_consultation->user->name : "Missing" }}</td>
+                            <td>{{ $medical_consultation->doctor ? $medical_consultation->doctor->name : "Missing" }}</td>
+                            <td>{{ $medical_consultation->status == 1 ? "Under Review" : ($medical_consultation->status == 2 ? "Confirmed" : (($medical_consultation->status == 3 ? "Completed" : ($medical_consultation->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
+                            <td>{{ $medical_consultation->date }}</td>
+                            <td>{{ $medical_consultation->created_at }}</td>
+                            <td>
+                                <a href="{{ route("admin.medical_consultations.medical_consultation.details", ["id" => $medical_consultation->id]) }}" class="btn btn-success">Show</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        @if ($appointments->hasPages())
-            <div class="d-flex laravel_pagination mt-5">
-                {!! $appointments->links() !!}
-            </div>
+        @if ($medical_consultations->hasPages())
+        <div class="d-flex laravel_pagination mt-5">
+            {!! $medical_consultations->links() !!}
+        </div>
         @endif
+
     </div>
 </div>
-
 @endSection
 
 

@@ -32,6 +32,7 @@ class OrdersController extends Controller
                     "",
                     ["العربة فارغة قم بتعبئتها اولا"],
                     [],
+                    [],
                 );
 
             // validate recipient info
@@ -39,7 +40,6 @@ class OrdersController extends Controller
                 "recipient_address" => ["required"],
                 "recipient_name" => ["required", "string"],
                 "recipient_phone" => ["required"],
-                "order_type" => ["required"],
             ], [
                 "your_name.required" => "الاسم مطلوب",
                 "your_phone.required" => "رقم الهاتف مطلوب",
@@ -52,10 +52,11 @@ class OrdersController extends Controller
             if ($validator->fails()) {
                 return $this->handleResponse(
                     false,
-                    "",
+                    "فشل",
                     [$validator->errors()->first()],
-                    [],
-                    [],
+                    [
+                    ],
+                    []
                 );
             }
 
@@ -80,7 +81,7 @@ class OrdersController extends Controller
                 "recipient_phone"               => $request->recipient_phone,
                 "recipient_address"             => $request->recipient_address,
                 "sub_total"                     => $sub_total,
-                "order_type"                     => $request->order_type,
+                "order_type"                     => 1,
                 "user_id"                       => $user->id,
                 "status"                        => 1,
             ]);
@@ -179,8 +180,7 @@ class OrdersController extends Controller
                     "status" => [
                         1 => "تحت المراجعة",
                         2 => "تم التاكيد",
-                        3 => "بداء الشحن",
-                        4 => "اكتمل",
+                        3 => "اكتمل",
                         0 => "فشل او الغى",
                     ]
                 ]
@@ -282,8 +282,7 @@ class OrdersController extends Controller
                     "status" => [
                         1 => "تحت المراجعة",
                         2 => "تم التاكيد",
-                        3 => "بداء الشحن",
-                        4 => "اكتمل",
+                        3 => "اكتمل",
                         0 => "فشل او الغى",
                     ]
                 ]

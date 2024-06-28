@@ -37,7 +37,7 @@
                             <td>{{ $order->recipient_phone }}</td>
                             <td>{{ $order->recipient_address }}</td>
                             <td>{{ $order->sub_total }}</td>
-                            <td>{{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ($order->status == 3 ? "On Shipping" : ($order->status == 4 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
+                            <td>{{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ($order->status == 3 ? "Completed" : ($order->status == 4 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
                             <td>{{ $order->created_at }}</td>
                             <td>
                                 <a href="{{ route("admin.orders.order.details", ["id" => $order->id]) }}" class="btn btn-success">Show</a>

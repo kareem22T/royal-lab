@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BacnnerController;
 use App\Http\Middleware\GuestAdminMiddleware;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\VisitsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DoctorController;
 
@@ -113,6 +114,23 @@ Route::prefix('admin')->group(function () {
             Route::get("/order/cancel/{id}", [OrdersController::class, "cancelIndex"])->name("admin.orders.cancel");
             Route::post("/order/cancel/confirm/{id}", [OrdersController::class, "cancel"])->name("admin.orders.cancel.post");
             Route::get("/order/success/{id}", [OrdersController::class, "successIndex"])->name("admin.orders.success");
+        });
+
+        // Visits
+        Route::prefix('visits')->group(function () {
+            Route::get("/visit/{id}", [VisitsController::class, "visit"])->name("admin.visits.visit.details");
+            Route::get("/all", [VisitsController::class, "index"])->name("admin.visits.show.all");
+            Route::get("/review", [VisitsController::class, "indexReview"])->name("admin.visits.show.review");
+            Route::get("/confirmed", [VisitsController::class, "indexConfirmed"])->name("admin.visits.show.confirmed");
+            Route::get("/delivary", [VisitsController::class, "indexDelivary"])->name("admin.visits.show.delivary");
+            Route::get("/completed", [VisitsController::class, "indexCompleted"])->name("admin.visits.show.completed");
+            Route::get("/canceled", [VisitsController::class, "indexCanceled"])->name("admin.visits.show.canceled");
+
+            Route::get("/visit/approve/{id}", [VisitsController::class, "approveIndex"])->name("admin.visits.approve");
+            Route::post("/visit/approve/confirm/{id}", [VisitsController::class, "approve"])->name("admin.visits.approve.post");
+            Route::get("/visit/cancel/{id}", [VisitsController::class, "cancelIndex"])->name("admin.visits.cancel");
+            Route::post("/visit/cancel/confirm/{id}", [VisitsController::class, "cancel"])->name("admin.visits.cancel.post");
+            Route::get("/visit/success/{id}", [VisitsController::class, "successIndex"])->name("admin.visits.success");
         });
 
         // Appointments

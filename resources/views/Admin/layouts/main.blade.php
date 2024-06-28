@@ -311,6 +311,23 @@
                     </div>
                 </div>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Visits"
+                    aria-expanded="true" aria-controls="Visits">
+                    <i class="fas fa-fw fa-receipt"></i>
+                    <span>Visits</span>
+                </a>
+                <div id="Visits" class="collapse" aria-labelledby="Visits" data-parent="#Visits">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.visits.show.all") }}">All</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.review") }}">Under review</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.confirmed") }}">Confirmed</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.completed") }}">Completed</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.canceled") }}">Canceled</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

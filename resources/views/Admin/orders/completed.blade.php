@@ -3,12 +3,12 @@
 @section("title", "Orders - Canceled")
 
 @php
-    $orders = App\Models\Order::latest()->with("user")->where("status", 4)->paginate(15);
+    $orders = App\Models\Order::latest()->with("user")->where("status", 3)->paginate(15);
 @endphp
 
 @section("content")
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Orders - Canceled</h1>
+    <h1 class="h3 mb-0 text-gray-800">Orders - Completed</h1>
 </div>
 
 <div class="card shadow mb-4">
@@ -37,7 +37,7 @@
                             <td>{{ $order->recipient_phone }}</td>
                             <td>{{ $order->recipient_address }}</td>
                             <td>{{ $order->sub_total }}</td>
-                            <td>{{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ($order->status == 3 ? "On Shipping" : ($order->status == 4 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
+                            <td>{{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ($order->status == 3 ? "Completed" : ($order->status == 4 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}</td>
                             <td>{{ $order->created_at }}</td>
                             <td>
                                 <a href="{{ route("admin.orders.order.details", ["id" => $order->id]) }}" class="btn btn-success">Show</a>
