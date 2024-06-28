@@ -17,6 +17,7 @@ use App\Http\Controllers\User\HomeEndpoints;
 use App\Http\Controllers\User\RegionController;
 use App\Http\Controllers\User\CityController;
 use App\Http\Controllers\User\BranchController;
+use App\Http\Controllers\User\ResultsController;
 
 // Users endpoints
 Route::post("/user/register", [AuthController::class, "register"]);
@@ -107,5 +108,9 @@ Route::get("/regions/get", [RegionController::class, "get"]);
 
 // prescriptions endpoints
 Route::post("/prescription/put", [PrescriptionsController::class, "store"])->middleware('auth:sanctum');
+
+
+// results endpoints
+Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth:sanctum');
 
 

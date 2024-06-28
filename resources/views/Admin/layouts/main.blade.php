@@ -255,6 +255,13 @@
                     <span>Prescriptions</span></a>
             </li>
 
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.users')}}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span></a>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <!-- Divider -->

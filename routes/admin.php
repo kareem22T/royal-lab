@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\VisitsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\ResultsController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -169,5 +170,12 @@ Route::prefix('admin')->group(function () {
         Route::get("/prescriptions", function() {
             return view("Admin.prescriptions.index");
         })->name("admin.prescriptions");
+
+        Route::get("/users", [ResultsController::class, "index"])->name("admin.users");
+        Route::get("/users/{id}/result/{result_id}", [ResultsController::class, "Result"])->name("admin.result");
+        Route::get("/users/{id}/results", [ResultsController::class, "getRultsIndex"])->name("admin.user.results");
+        Route::get("/users/{id}/result/add", [ResultsController::class, "uploadResultIndex"])->name("admin.result.upload");
+        Route::post("/users/result/update", [ResultsController::class, "update"])->name("admin.result.update");
+        Route::post("/users/result/store", [ResultsController::class, "store"])->name("admin.results.create");
     });
 });
