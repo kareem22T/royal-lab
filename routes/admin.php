@@ -4,11 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\MoneyRequestsContrller;
 use App\Http\Controllers\Admin\BacnnerController;
 use App\Http\Middleware\GuestAdminMiddleware;
+use App\Http\Controllers\Admin\BranchController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -18,28 +21,40 @@ Route::prefix('admin')->group(function () {
         // Dashboard
         Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
-        // Categories
-        Route::prefix('categories')->group(function () {
-            Route::get("/", [CategoryController::class, "index"])->name("admin.categories.show");
-            Route::get("/get", [CategoryController::class, "get"])->name("admin.categories.get");
-            Route::get("/create", [CategoryController::class, "add"])->name("admin.categories.add");
-            Route::post("/create", [CategoryController::class, "create"])->name("admin.categories.create");
-            Route::get("/edit/{id}", [CategoryController::class, "edit"])->name("admin.categories.edit");
-            Route::post("/update", [CategoryController::class, "update"])->name("admin.categories.update");
-            Route::get("/delete/{id}", [CategoryController::class, "deleteIndex"])->name("admin.categories.delete.confirm");
-            Route::post("/delete", [CategoryController::class, "delete"])->name("admin.categories.delete");
+        // Cities
+        Route::prefix('cities')->group(function () {
+            Route::get("/", [CityController::class, "index"])->name("admin.cities.show");
+            Route::get("/get", [CityController::class, "get"])->name("admin.cities.get");
+            Route::get("/create", [CityController::class, "add"])->name("admin.cities.add");
+            Route::post("/create", [CityController::class, "create"])->name("admin.cities.create");
+            Route::get("/edit/{id}", [CityController::class, "edit"])->name("admin.cities.edit");
+            Route::post("/update", [CityController::class, "update"])->name("admin.cities.update");
+            Route::get("/delete/{id}", [CityController::class, "deleteIndex"])->name("admin.cities.delete.confirm");
+            Route::post("/delete", [CityController::class, "delete"])->name("admin.cities.delete");
         });
 
-        // Banners
-        Route::prefix('banners')->group(function () {
-            Route::get("/", [BacnnerController::class, "index"])->name("admin.banners.show");
-            Route::get("/get", [BacnnerController::class, "get"])->name("admin.banners.get");
-            Route::get("/create", [BacnnerController::class, "add"])->name("admin.banners.add");
-            Route::post("/create", [BacnnerController::class, "create"])->name("admin.banners.create");
-            Route::get("/edit/{id}", [BacnnerController::class, "edit"])->name("admin.banners.edit");
-            Route::post("/update", [BacnnerController::class, "update"])->name("admin.banners.update");
-            Route::get("/delete/{id}", [BacnnerController::class, "deleteIndex"])->name("admin.banners.delete.confirm");
-            Route::post("/delete", [BacnnerController::class, "delete"])->name("admin.banners.delete");
+        // regions
+        Route::prefix('regions')->group(function () {
+            Route::get("/", [RegionController::class, "index"])->name("admin.regions.show");
+            Route::get("/get", [RegionController::class, "get"])->name("admin.regions.get");
+            Route::get("/create", [RegionController::class, "add"])->name("admin.regions.add");
+            Route::post("/create", [RegionController::class, "create"])->name("admin.regions.create");
+            Route::get("/edit/{id}", [RegionController::class, "edit"])->name("admin.regions.edit");
+            Route::post("/update", [RegionController::class, "update"])->name("admin.regions.update");
+            Route::get("/delete/{id}", [RegionController::class, "deleteIndex"])->name("admin.regions.delete.confirm");
+            Route::post("/delete", [RegionController::class, "delete"])->name("admin.regions.delete");
+        });
+
+        // branches
+        Route::prefix('branches')->group(function () {
+            Route::get("/", [BranchController::class, "index"])->name("admin.branches.show");
+            Route::get("/get", [BranchController::class, "get"])->name("admin.branches.get");
+            Route::get("/create", [BranchController::class, "add"])->name("admin.branches.add");
+            Route::post("/create", [BranchController::class, "create"])->name("admin.branches.create");
+            Route::get("/edit/{id}", [BranchController::class, "edit"])->name("admin.branches.edit");
+            Route::post("/update", [BranchController::class, "update"])->name("admin.branches.update");
+            Route::get("/delete/{id}", [BranchController::class, "deleteIndex"])->name("admin.branches.delete.confirm");
+            Route::post("/delete", [BranchController::class, "delete"])->name("admin.branches.delete");
         });
 
         // Products

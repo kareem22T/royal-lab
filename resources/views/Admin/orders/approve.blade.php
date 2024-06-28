@@ -7,8 +7,7 @@
     <h1 class="h3 mb-0 text-gray-800 text-center w-100" style="font-weight: 700">
         Are you sure you want to
         {{ $order->status === 1 ? "Confirm" : '' }}
-        {{ $order->status === 2 ? "Start Shipping" : '' }}
-        {{ $order->status === 3 ? "Complete" : '' }}
+        {{ $order->status === 2 ? "Complete" : '' }}
          this order?
     </h1>
 </div>
@@ -68,8 +67,7 @@
             @csrf
             <button type="submit" class="btn btn-success w-50 m-2">
                 {{ $order->status === 1 ? "Confirm!" : '' }}
-                {{ $order->status === 2 ? "Start Shipping!" : '' }}
-                {{ $order->status === 3 ? "Complete!" : '' }}
+                {{ $order->status === 2 ? "Complete!" : '' }}
             </button>
         </form>
     @endif

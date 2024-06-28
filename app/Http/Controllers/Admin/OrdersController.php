@@ -39,9 +39,7 @@ class OrdersController extends Controller
 
     public function order($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
         if ($order)
             return view("Admin.orders.order")->with(compact("order"));
@@ -57,9 +55,7 @@ class OrdersController extends Controller
 
     public function approveIndex($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
         if ($order && $order->status !== 4 && $order->status !== 0)
             return view("Admin.orders.approve")->with(compact("order"));
@@ -75,9 +71,7 @@ class OrdersController extends Controller
 
     public function cancelIndex($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
         if ($order && $order->status !== 4 && $order->status !== 0)
             return view("Admin.orders.cancel")->with(compact("order"));
@@ -93,9 +87,7 @@ class OrdersController extends Controller
 
     public function approve($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
 
         if ($order->status === 1) {
@@ -108,10 +100,6 @@ class OrdersController extends Controller
             $order->save();
         }
 
-        else if ($order->status === 3) {
-            $order->status = 4;
-            $order->save();
-        }
 
         if ($order) {
             return redirect('/admin/orders/order/success/' . $order->id);
@@ -128,12 +116,10 @@ class OrdersController extends Controller
 
     public function cancel($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
 
-       if ($order->status != 4 && $order->status != 0) {
+       if ($order->status != 3 && $order->status != 0) {
             $order->status = 0;
             $order->save();
         }
@@ -153,9 +139,7 @@ class OrdersController extends Controller
 
     public function successIndex($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
         if ($order)
             return view("Admin.orders.success")->with(compact("order"));

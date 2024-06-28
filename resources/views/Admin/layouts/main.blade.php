@@ -175,6 +175,49 @@
                     </div>
                 </div>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cities"
+                    aria-expanded="true" aria-controls="cities">
+                    <i class="fas fa-fw fa-globe"></i>
+                    <span>Cities</span>
+                </a>
+                <div id="cities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.cities.show") }}">Preview</a>
+                        <a class="collapse-item" href="{{ route("admin.cities.add") }}">Add</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regions"
+                    aria-expanded="true" aria-controls="cities">
+                    <i class="fas fa-fw fa-road"></i>
+                    <span>Regions</span>
+                </a>
+                <div id="regions" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.regions.show") }}">Preview</a>
+                        <a class="collapse-item" href="{{ route("admin.regions.add") }}">Add</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#branches"
+                    aria-expanded="true" aria-controls="cities">
+                    <i class="fas fa-fw fa-map"></i>
+                    <span>Branches</span>
+                </a>
+                <div id="branches" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.branches.show") }}">Preview</a>
+                        <a class="collapse-item" href="{{ route("admin.branches.add") }}">Add</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
 

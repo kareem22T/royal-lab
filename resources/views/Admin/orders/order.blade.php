@@ -46,7 +46,7 @@
         <div class="form-group">
             <label>Status</label>
             <span class="form-control">
-                {{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ($order->status == 3 ? "On Shipping" : ($order->status == 4 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}
+                {{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ( ($order->status == 3 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}
             </span>
         </div>
         <div class="form-group">
@@ -59,16 +59,14 @@
         </div>
     </div>
     <hr>
-    <h2>Order Products:</h2>
+    <h2>Order Services:</h2>
     <div class="table-responsive p-2">
         <table class="table table-bordered" width="100%" cellspacing="0" style="white-space: nowrap;">
             <thead>
                 <tr>
-                    <th>Product Id</th>
+                    <th>Id</th>
                     <th>Product Name</th>
                     <th>Product Sold Price</th>
-                    <th>Product Sold Quantity</th>
-                    <th>Product Category</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,8 +76,6 @@
                         <td>{{ $product->product->id }}</td>
                         <td>{{ $product->product->name }}</td>
                         <td>{{ $product->price_in_order }}</td>
-                        <td>{{ $product->ordered_quantity }}</td>
-                        <td>{{ $product->product->category->name }}</td>
                     </tr>
                     @else
                     <tr class="text-center text-danger">
@@ -93,15 +89,14 @@
 
     <div class="btns d-flex gap-3 justify-content-center">
 
-        @if($order->status !== 4 && $order->status !== 0)
+        @if($order->status !== 3 && $order->status !== 0)
             <a href="{{route('admin.orders.approve', ['id' => $order->id])}}" class="btn btn-success w-25 m-2">
                 {{ $order->status === 1 ? "Confirm!" : '' }}
-                {{ $order->status === 2 ? "Start Shipping!" : '' }}
-                {{ $order->status === 3 ? "Complete!" : '' }}
+                {{ $order->status === 2 ? "Complete!" : '' }}
             </a>
         @endif
 
-        @if($order->status !== 4 && $order->status !== 0)
+        @if($order->status !== 3 && $order->status !== 0)
             <a href="{{route('admin.orders.cancel', ['id' => $order->id])}}"class="btn btn-danger w-25 m-2">Cancel</a>
         @endif
     </div>
