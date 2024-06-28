@@ -50,6 +50,14 @@
             </span>
         </div>
         <div class="form-group">
+            <label>Branch</label>
+            <span class="form-control">{{ $appointment->branch->address }}</span>
+        </div>
+        <div class="form-group">
+            <label>Service</label>
+            <span class="form-control">{{ $appointment->service->name }}</span>
+        </div>
+        <div class="form-group">
             <label>Date</label>
             <span class="form-control">{{ $appointment->date }}</span>
         </div>

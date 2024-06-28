@@ -17,6 +17,7 @@ class Appointment extends Model
         "branch_id",
         "service_id",
         "user_id",
+        "status",
         "date",
     ];
 

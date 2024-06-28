@@ -38,7 +38,7 @@ class AppointmentsController extends Controller
     }
 
     public function appointment($id) {
-        $appointment = Appointment::with(["user"])->find($id);
+        $appointment = Appointment::with(["user", "branch", "service"])->find($id);
         if ($appointment)
             return view("Admin.appointments.appointment")->with(compact("appointment"));
 
