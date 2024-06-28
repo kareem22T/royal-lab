@@ -5,14 +5,17 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
-use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AppointmentsController;
+use App\Http\Controllers\Admin\Medical_consultationsController;
 use App\Http\Controllers\Admin\MoneyRequestsContrller;
 use App\Http\Controllers\Admin\BacnnerController;
 use App\Http\Middleware\GuestAdminMiddleware;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\DoctorController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -44,6 +47,30 @@ Route::prefix('admin')->group(function () {
             Route::post("/update", [RegionController::class, "update"])->name("admin.regions.update");
             Route::get("/delete/{id}", [RegionController::class, "deleteIndex"])->name("admin.regions.delete.confirm");
             Route::post("/delete", [RegionController::class, "delete"])->name("admin.regions.delete");
+        });
+
+        // doctors
+        Route::prefix('doctors')->group(function () {
+            Route::get("/", [DoctorController::class, "index"])->name("admin.doctors.show");
+            Route::get("/get", [DoctorController::class, "get"])->name("admin.doctors.get");
+            Route::get("/create", [DoctorController::class, "add"])->name("admin.doctors.add");
+            Route::post("/create", [DoctorController::class, "create"])->name("admin.doctors.create");
+            Route::get("/edit/{id}", [DoctorController::class, "edit"])->name("admin.doctors.edit");
+            Route::post("/update", [DoctorController::class, "update"])->name("admin.doctors.update");
+            Route::get("/delete/{id}", [DoctorController::class, "deleteIndex"])->name("admin.doctors.delete.confirm");
+            Route::post("/delete", [DoctorController::class, "delete"])->name("admin.doctors.delete");
+        });
+
+        // consultations
+        Route::prefix('consultations')->group(function () {
+            Route::get("/", [ConsultationController::class, "index"])->name("admin.consultations.show");
+            Route::get("/get", [ConsultationController::class, "get"])->name("admin.consultations.get");
+            Route::get("/create", [ConsultationController::class, "add"])->name("admin.consultations.add");
+            Route::post("/create", [ConsultationController::class, "create"])->name("admin.consultations.create");
+            Route::get("/edit/{id}", [ConsultationController::class, "edit"])->name("admin.consultations.edit");
+            Route::post("/update", [ConsultationController::class, "update"])->name("admin.consultations.update");
+            Route::get("/delete/{id}", [ConsultationController::class, "deleteIndex"])->name("admin.consultations.delete.confirm");
+            Route::post("/delete", [ConsultationController::class, "delete"])->name("admin.consultations.delete");
         });
 
         // branches
@@ -103,6 +130,22 @@ Route::prefix('admin')->group(function () {
             Route::get("/appointment/cancel/{id}", [AppointmentsController::class, "cancelIndex"])->name("admin.appointments.cancel");
             Route::post("/appointment/cancel/confirm/{id}", [AppointmentsController::class, "cancel"])->name("admin.appointments.cancel.post");
             Route::get("/appointment/success/{id}", [AppointmentsController::class, "successIndex"])->name("admin.appointments.success");
+        });
+        // medical_consultations
+        Route::prefix('medical_consultations')->group(function () {
+            Route::get("/consultation/{id}", [Medical_consultationsController::class, "medical_consultation"])->name("admin.medical_consultations.medical_consultation.details");
+            Route::get("/all", [Medical_consultationsController::class, "index"])->name("admin.medical_consultations.show.all");
+            Route::get("/review", [Medical_consultationsController::class, "indexReview"])->name("admin.medical_consultations.show.review");
+            Route::get("/confirmed", [Medical_consultationsController::class, "indexConfirmed"])->name("admin.medical_consultations.show.confirmed");
+            Route::get("/delivary", [Medical_consultationsController::class, "indexDelivary"])->name("admin.medical_consultations.show.delivary");
+            Route::get("/completed", [Medical_consultationsController::class, "indexCompleted"])->name("admin.medical_consultations.show.completed");
+            Route::get("/canceled", [Medical_consultationsController::class, "indexCanceled"])->name("admin.medical_consultations.show.canceled");
+
+            Route::get("/medical_consultation/approve/{id}", [Medical_consultationsController::class, "approveIndex"])->name("admin.medical_consultations.approve");
+            Route::post("/medical_consultation/approve/confirm/{id}", [Medical_consultationsController::class, "approve"])->name("admin.medical_consultations.approve.post");
+            Route::get("/medical_consultation/cancel/{id}", [Medical_consultationsController::class, "cancelIndex"])->name("admin.medical_consultations.cancel");
+            Route::post("/medical_consultation/cancel/confirm/{id}", [Medical_consultationsController::class, "cancel"])->name("admin.medical_consultations.cancel.post");
+            Route::get("/medical_consultation/success/{id}", [Medical_consultationsController::class, "successIndex"])->name("admin.medical_consultations.success");
         });
     });
 });

@@ -219,6 +219,35 @@
                 </div>
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctors"
+                    aria-expanded="true" aria-controls="cities">
+                    <i class="fas fa-fw fa-stethoscope"></i>
+                    <span>Doctors</span>
+                </a>
+                <div id="doctors" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.doctors.show") }}">Preview</a>
+                        <a class="collapse-item" href="{{ route("admin.doctors.add") }}">Add</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#consultations"
+                    aria-expanded="true" aria-controls="cities">
+                    <i class="fas fa-fw fa-laptop-medical"></i>
+                    <span>Consultations</span>
+                </a>
+                <div id="consultations" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.consultations.show") }}">Preview</a>
+                        <a class="collapse-item" href="{{ route("admin.consultations.add") }}">Add</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <!-- Divider -->
@@ -261,6 +290,24 @@
                         <a class="collapse-item" href="{{ route("admin.appointments.show.confirmed") }}">Confirmed</a>
                         <a class="collapse-item" href="{{ route("admin.appointments.show.completed") }}">Completed</a>
                         <a class="collapse-item" href="{{ route("admin.appointments.show.canceled") }}">Canceled</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#medical_consultations"
+                    aria-expanded="true" aria-controls="asdadf">
+                    <i class="fas fa-fw fa-receipt"></i>
+                    <span>Doctor Consultations</span>
+                </a>
+                <div id="medical_consultations" class="collapse" aria-labelledby="asdadf" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.all") }}">All</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.review") }}">Under review</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.confirmed") }}">Confirmed</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.completed") }}">Completed</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.canceled") }}">Canceled</a>
                     </div>
                 </div>
             </li>

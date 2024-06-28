@@ -9,6 +9,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\OrdersController;
 use App\Http\Controllers\User\AppointmentsController;
+use App\Http\Controllers\User\ConsultationController;
 use App\Http\Controllers\User\TransactionsController;
 use App\Http\Controllers\User\HomeEndpoints;
 use App\Http\Controllers\User\RegionController;
@@ -66,6 +67,17 @@ Route::get("/appointments/user/search/all", [AppointmentsController::class, "sea
 Route::get("/appointments/user/search/pagination", [AppointmentsController::class, "searchAppointmentsPagination"])->middleware('auth:sanctum');
 Route::post("/appointments/user/request/withdraw", [AppointmentsController::class, "requestMoney"])->middleware('auth:sanctum');
 Route::get("/appointments/user/request/withdraw/get", [AppointmentsController::class, "getRequests"])->middleware('auth:sanctum');
+
+// Medical_consultations endpoints
+Route::post("/medical_consultations/place", [ConsultationController::class, "placeConsultation"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/medical_consultation/{id}", [ConsultationController::class, "medical_consultation"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/user/all", [ConsultationController::class, "medical_consultationsAll"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/user/pagination", [ConsultationController::class, "medical_consultationsPagination"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/user/search/all", [ConsultationController::class, "searchMedical_consultationsAll"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/user/search/pagination", [ConsultationController::class, "searchMedical_consultationsPagination"])->middleware('auth:sanctum');
+Route::post("/medical_consultations/user/request/withdraw", [ConsultationController::class, "requestMoney"])->middleware('auth:sanctum');
+Route::get("/medical_consultations/user/request/withdraw/get", [ConsultationController::class, "getRequests"])->middleware('auth:sanctum');
+Route::get("/doctors/get", [ConsultationController::class, "getDoctors"]);
 
 // Home endpoints
 Route::get("/home/load-data", [HomeEndpoints::class, "getHomeApi"]);

@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Appointment extends Model
+class Medical_consultation extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "name",
-        "age",
-        "phone",
-        "sub_total",
-        "branch_id",
-        "service_id",
+        "doctor_id",
+        "specialization_id",
         "user_id",
         "status",
         "date",
     ];
 
-    protected $table = "appointmnts";
+    protected $table = "medical_consultations";
 
     public function user()
     {
@@ -30,12 +26,12 @@ class Appointment extends Model
 
     public function doctor()
     {
-        return $this->belongsTo('App\Models\Product', 'service_id');
+        return $this->belongsTo('App\Models\Doctor', 'doctor_id');
     }
 
-    public function branch()
+    public function specialization()
     {
-        return $this->belongsTo('App\Models\Branch', 'branch_id');
+        return $this->belongsTo('App\Models\Specialization', 'specialization_id');
     }
 
 }
