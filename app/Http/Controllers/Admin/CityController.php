@@ -52,6 +52,7 @@ class CityController extends Controller
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
             "name" => ["required", "max:100"],
+            "name_ar" => ["required", "max:100"],
         ], [
             "name.required" => "ادخل اسم المدينة",
             "name.max" => "يجب الا يتعدى اسم المدينة 100 حرف",
@@ -69,6 +70,7 @@ class CityController extends Controller
 
         $city = City::create([
             "name" => $request->name,
+            "name_ar" => $request->name,
         ]);
 
         if ($city)
@@ -85,6 +87,7 @@ class CityController extends Controller
         $validator = Validator::make($request->all(), [
             "id" => ["required"],
             "name" => ["required", "max:100"],
+            "name_ar" => ["required", "max:100"],
         ], [
             "name.required" => "ادخل اسم المدينة",
             "name.max" => "يجب الا يتعدى اسم المدينة 100 حرف",
@@ -103,6 +106,7 @@ class CityController extends Controller
         $city = City::find($request->id);
 
         $city->name = $request->name;
+        $city->name_ar = $request->name_ar;
         $city->save();
 
         if ($city)

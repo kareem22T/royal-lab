@@ -10,7 +10,8 @@ class Region extends Model
     use HasFactory;
 
     protected $fillable = [
-        "name"
+        "name",
+        "name_ar",
     ];
 
     public $timestamps = false;

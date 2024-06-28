@@ -10,6 +10,9 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\OrdersController;
 use App\Http\Controllers\User\TransactionsController;
 use App\Http\Controllers\User\HomeEndpoints;
+use App\Http\Controllers\User\RegionController;
+use App\Http\Controllers\User\CityController;
+use App\Http\Controllers\User\BranchController;
 
 // Users endpoints
 Route::post("/user/register", [AuthController::class, "register"]);
@@ -43,10 +46,6 @@ Route::post("/cart/remove-product", [CartController::class, "removeProductFromCa
 Route::post("/cart/update-product-quantity", [CartController::class, "updateProductQuantityAtCart"])->middleware('auth:sanctum');
 Route::get("/cart/get", [CartController::class, "getCartDetails"])->middleware('auth:sanctum');
 
-// Wishlist endpoints
-Route::post("/wishlist/add-or-remove-product", [WishlistController::class, "addOrDeleteProductWishlist"])->middleware('auth:sanctum');
-Route::get("/wishlist/get", [WishlistController::class, "getWishlist"])->middleware('auth:sanctum');
-
 // Orders endpoints
 Route::post("/orders/place", [OrdersController::class, "placeOrder"])->middleware('auth:sanctum');
 Route::get("/orders/order/{id}", [OrdersController::class, "order"])->middleware('auth:sanctum');
@@ -59,4 +58,15 @@ Route::get("/orders/user/request/withdraw/get", [OrdersController::class, "getRe
 
 // Home endpoints
 Route::get("/home/load-data", [HomeEndpoints::class, "getHomeApi"]);
+
+// branches endpoints
+Route::get("/branches/get", [BranchController::class, "getAllBranches"]);
+Route::get("/branches/search", [BranchController::class, "searchBranches"]);
+
+// cities endpoints
+Route::get("/cities/get", [CityController::class, "get"]);
+
+// regions endpoints
+Route::get("/regions/get", [RegionController::class, "get"]);
+
 

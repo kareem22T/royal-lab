@@ -17,6 +17,11 @@
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name"  placeholder="region Name" v-model="name">
             </div>
+            <div class="form-group w-100">
+                <label for="name" class="form-label">Name in arabic</label>
+                <input type="text" class="form-control" id="name"  placeholder="City Name in arabic" v-model="name_ar">
+            </div>
+
         </div>
     </div>
     <div class="form-group">
@@ -35,6 +40,7 @@ createApp({
         return {
             id: '{{ $region->id }}',
             name: '{{ $region->name }}',
+            name_ar: '{{ $region->name_ar }}',
         }
     },
     methods: {
@@ -48,6 +54,7 @@ createApp({
                 const response = await axios.post(`{{ route("admin.regions.update") }}`, {
                     id: this.id,
                     name: this.name,
+                    name_ar: this.name_ar,
                 },
                 {
                     headers: {

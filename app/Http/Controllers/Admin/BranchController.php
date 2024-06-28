@@ -58,6 +58,7 @@ class BranchController extends Controller
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
             "address" => ["required"],
+            "address_ar" => ["required"],
             "phone" => ["required"],
             "city_id" => ["required", "integer"],
             "region_id" => ["required", "integer"],
@@ -82,6 +83,7 @@ class BranchController extends Controller
 
         $branch = Branch::create([
             "address" => $request->address,
+            "address_ar" => $request->address_ar,
             "phone" => $request->phone,
             "city_id" => $request->city_id,
             "region_id" => $request->region_id,
@@ -101,6 +103,7 @@ class BranchController extends Controller
         $validator = Validator::make($request->all(), [
             "id" => ["required"],
             "address" => ["required"],
+            "address_ar" => ["required"],
             "phone" => ["required"],
             "city_id" => ["required", "integer"],
             "region_id" => ["required", "integer"],
@@ -126,6 +129,7 @@ class BranchController extends Controller
         $branch = Branch::find($request->id);
 
         $branch->address = $request->address;
+        $branch->address_ar = $request->address_ar;
         $branch->phone = $request->phone;
         $branch->city_id = $request->city_id;
         $branch->region_id = $request->region_id;

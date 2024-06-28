@@ -18,6 +18,10 @@
                 <input type="text" class="form-control" id="address" placeholder="Branch Address" v-model="address">
             </div>
             <div class="form-group w-100">
+                <label for="address" class="form-label">Address in arabic</label>
+                <input type="text" class="form-control" id="address"  placeholder="Branch Address in arabic" v-model="address_ar">
+            </div>
+            <div class="form-group w-100">
                 <label for="phone" class="form-label">Phone</label>
                 <input type="text" class="form-control" id="phone" placeholder="Branch Phone" v-model="phone">
             </div>
@@ -57,6 +61,7 @@ createApp({
         return {
             id: '{{ $branch->id }}',
             address: '{{ $branch->address }}',
+            address_ar: '{{ $branch->address_ar }}',
             phone: '{{ $branch->phone }}',
             city_id: '{{ $branch->city_id }}',
             region_id: '{{ $branch->region_id }}',
@@ -84,6 +89,7 @@ createApp({
                 const response = await axios.post(`{{ route("admin.branches.update") }}`, {
                     id: this.id,
                     address: this.address,
+                    address_ar: this.address_ar,
                     phone: this.phone,
                     city_id: this.city_id,
                     region_id: this.region_id,

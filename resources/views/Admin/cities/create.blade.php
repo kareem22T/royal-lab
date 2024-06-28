@@ -17,6 +17,10 @@
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name"  placeholder="City Name" v-model="name">
             </div>
+            <div class="form-group w-100">
+                <label for="name" class="form-label">Name in arabic</label>
+                <input type="text" class="form-control" id="name"  placeholder="City Name in arabic" v-model="name_ar">
+            </div>
         </div>
 
     </div>
@@ -35,6 +39,7 @@ createApp({
     data() {
         return {
             name: null,
+            name_ar: null,
         }
     },
     methods: {
@@ -47,6 +52,7 @@ createApp({
             try {
                 const response = await axios.post(`{{ route("admin.cities.create") }}`, {
                     name: this.name,
+                    name_ar: this.name_ar,
                 },
                 {
                     headers: {
