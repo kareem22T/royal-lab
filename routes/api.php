@@ -12,6 +12,7 @@ use App\Http\Controllers\User\VisitsController;
 use App\Http\Controllers\User\AppointmentsController;
 use App\Http\Controllers\User\ConsultationController;
 use App\Http\Controllers\User\TransactionsController;
+use App\Http\Controllers\User\PrescriptionsController;
 use App\Http\Controllers\User\HomeEndpoints;
 use App\Http\Controllers\User\RegionController;
 use App\Http\Controllers\User\CityController;
@@ -102,5 +103,9 @@ Route::get("/cities/get", [CityController::class, "get"]);
 
 // regions endpoints
 Route::get("/regions/get", [RegionController::class, "get"]);
+
+
+// prescriptions endpoints
+Route::post("/prescription/put", [PrescriptionsController::class, "store"])->middleware('auth:sanctum');
 
 

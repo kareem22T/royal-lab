@@ -165,5 +165,9 @@ Route::prefix('admin')->group(function () {
             Route::post("/medical_consultation/cancel/confirm/{id}", [Medical_consultationsController::class, "cancel"])->name("admin.medical_consultations.cancel.post");
             Route::get("/medical_consultation/success/{id}", [Medical_consultationsController::class, "successIndex"])->name("admin.medical_consultations.success");
         });
+
+        Route::get("/prescriptions", function() {
+            return view("Admin.prescriptions.index");
+        })->name("admin.prescriptions");
     });
 });

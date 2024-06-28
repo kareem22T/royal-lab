@@ -248,6 +248,13 @@
                 </div>
             </li>
 
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.prescriptions')}}">
+                    <i class="fas fa-fw fa-capsules"></i>
+                    <span>Prescriptions</span></a>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <!-- Divider -->
@@ -255,7 +262,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Manage Transactions
+                Manage Request
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
