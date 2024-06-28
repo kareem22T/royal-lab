@@ -54,18 +54,6 @@ class CartController extends Controller
                         ]
                     );
             } else {
-                if ((int) $quantity > (int) $product->quantity)
-                    return $this->handleResponse(
-                        true,
-                        "هذه الكمية غير متوفرة من الخدمة",
-                        [],
-                        [],
-                        [
-                            "في حالة كان الخدمة موجود في عربة المستخم فالكمية تزداد بواحد او بالعدد المرسل من المستخدم في ال quantity"
-                        ]
-                    );
-
-
                 $cart_item = Cart::create([
                     "user_id" => $user->id,
                     "product_id" => $product->id,
