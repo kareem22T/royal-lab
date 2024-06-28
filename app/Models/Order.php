@@ -14,6 +14,7 @@ class Order extends Model
         "recipient_phone",
         "recipient_address",
         "sub_total",
+        "user_id",
         "status",
         "order_type",
     ];
