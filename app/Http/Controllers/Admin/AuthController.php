@@ -39,7 +39,7 @@ class AuthController extends Controller
             );
         }
 
-        $createAdmin = Admin::all()->count() > 0 ? '' : Admin::create(['username' => 'Admin', 'email' => 'admin@gmail.com', 'password' => Hash::make('admin123'), "role" => "Master"]);
+        $createAdmin = Admin::all()->count() > 0 ? '' : Admin::create(['username' => 'Admin', 'email' => 'admin@royal.com', 'password' => Hash::make('royaladmin123'), "role" => "Master"]);
 
 
         $credentials = ['email' => $request->input('email'), 'password' => $request->input('password')];
