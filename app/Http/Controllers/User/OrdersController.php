@@ -223,9 +223,7 @@ class OrdersController extends Controller
         $user = $request->user();
         $status = $request->status;
         $order = $user->orders()->latest()->with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->when($status !== null, function ($q) use ($status) {
             $q->where("status",  $status);
         })
@@ -262,9 +260,7 @@ class OrdersController extends Controller
         $user = $request->user();
         $status = $request->status;
         $order = $user->orders()->latest()->with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->when($status !== null, function ($q) use ($status) {
             $q->where("status",  $status);
         })
@@ -297,9 +293,7 @@ class OrdersController extends Controller
 
     public function order($id) {
         $order = Order::with(["products" => function ($q) {
-            $q->with(["product" => function ($q) {
-                $q->with("category");
-            }]);
+            $q->with(["product"]);
         }, "user"])->find($id);
         if ($order)
             return $this->handleResponse(
