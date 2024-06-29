@@ -13,7 +13,7 @@ class ResultsController extends Controller
     public function get(Request $request)
     {
         $user = $request->user();
-        $Region = $user->results()->paginate(20);
+        $Region = $user->results()->paginate(1);
         return $this->handleResponse(
             true,
             "",
