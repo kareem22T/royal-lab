@@ -8,6 +8,7 @@ use App\HandleResponseTrait;
 use App\Models\Medical_consultation;
 use App\Models\Money_request;
 use App\Models\Product;
+use App\Models\Consultation;
 use App\Models\Doctor;
 use App\Models\Medical_consultationed_Product;
 use Illuminate\Support\Facades\Validator;
@@ -237,6 +238,19 @@ class ConsultationController extends Controller
             "",
             [],
             [$Doctor],
+            [
+            ]
+        );
+    }
+
+    public function getConsultation()
+    {
+        $Consultation = Consultation::all();
+        return $this->handleResponse(
+            false,
+            "",
+            [],
+            [$Consultation],
             [
             ]
         );

@@ -91,6 +91,7 @@ Route::get("/medical_consultations/user/search/pagination", [ConsultationControl
 Route::post("/medical_consultations/user/request/withdraw", [ConsultationController::class, "requestMoney"])->middleware('auth:sanctum');
 Route::get("/medical_consultations/user/request/withdraw/get", [ConsultationController::class, "getRequests"])->middleware('auth:sanctum');
 Route::get("/doctors/get", [ConsultationController::class, "getDoctors"]);
+Route::get("/consultations/get", [ConsultationController::class, "getConsultation"]);
 
 // Home endpoints
 Route::get("/home/load-data", [HomeEndpoints::class, "getHomeApi"]);
