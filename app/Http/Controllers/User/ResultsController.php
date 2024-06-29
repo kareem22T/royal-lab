@@ -15,7 +15,7 @@ class ResultsController extends Controller
         $user = $request->user();
         $Region = $user->results()->paginate(20);
         return $this->handleResponse(
-            false,
+            true,
             "",
             [],
             $Region,
