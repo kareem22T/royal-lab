@@ -35,7 +35,7 @@
                             <td>{{ $cat->email ?? "Missing" }}</td>
                             <td>{{ $cat->phone ?? "Missing" }}</td>
                             <td>
-                                <a href="{{ route("admin.result.upload", ["id" => $cat->id]) }}" class="btn btn-success">Upload Result</a>
+                                <a href="{{ route("admin.result.add.upload", ["id" => $cat->id]) }}" class="btn btn-success">Upload Result</a>
                                 <a href="{{ route("admin.user.results", ["id" => $cat->id]) }}" class="btn btn-secondary">All User Result</a>
                             </td>
                         </tr>
