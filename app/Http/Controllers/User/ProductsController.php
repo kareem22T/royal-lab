@@ -88,7 +88,9 @@ class ProductsController extends Controller
         $query = Product::with(["gallery"])
             ->where(function($q) use ($search) {
                 $q->where('name', 'like', '%' . $search . '%')
-                  ->orWhere('description', 'like', '%' . $search . '%');
+                  ->orWhere('description', 'like', '%' . $search . '%')
+                  ->orWhere('description_ar', 'like', '%' . $search . '%')
+                  ->orWhere('name_ar', 'like', '%' . $search . '%');
             });
 
         if ($request->has('price_from')) {
