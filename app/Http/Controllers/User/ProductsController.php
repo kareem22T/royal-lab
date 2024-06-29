@@ -85,7 +85,7 @@ class ProductsController extends Controller
         $sortWay = $request->sort && $request->sort == "HP" ? "desc" : ($request->sort && $request->sort == "LP" ? "asc" : "desc");
         $search = $request->search ? $request->search : '';
 
-        $query = Product::with(["gallery", "options"])
+        $query = Product::with(["gallery"])
             ->where(function($q) use ($search) {
                 $q->where('name', 'like', '%' . $search . '%')
                   ->orWhere('description', 'like', '%' . $search . '%');
@@ -201,7 +201,7 @@ class ProductsController extends Controller
         $sortWay = $request->sort && $request->sort == "HP" ? "desc" : ($request->sort && $request->sort == "LP" ? "asc" : "desc");
         $search = $request->search ? $request->search : '';
 
-        $query = Product::with(["gallery", "options"])
+        $query = Product::with(["gallery"])
                         ->where('type', 2)
                         ->where(function($q) use ($search) {
                             $q->where('name', 'like', '%' . $search . '%')
