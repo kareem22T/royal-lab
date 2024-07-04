@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\VisitsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ResultsController;
+use App\Http\Controllers\Admin\SettingsController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -40,6 +41,7 @@ Route::prefix('admin')->group(function () {
         });
 
         // regions
+        Route::post("/store-settings", [SettingsController::class, "store"])->name("admin.regions.show");
         Route::prefix('regions')->group(function () {
             Route::get("/", [RegionController::class, "index"])->name("admin.regions.show");
             Route::get("/get", [RegionController::class, "get"])->name("admin.regions.get");
@@ -170,6 +172,9 @@ Route::prefix('admin')->group(function () {
         Route::get("/prescriptions", function() {
             return view("Admin.prescriptions.index");
         })->name("admin.prescriptions");
+        Route::get("/companies-messages", function() {
+            return view("Admin.companies_msgs.index");
+        })->name("admin.msgs");
 
         Route::get("/users", [ResultsController::class, "index"])->name("admin.users");
         Route::get("/users/{id}/result/{result_id}", [ResultsController::class, "Result"])->name("admin.result");

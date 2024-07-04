@@ -202,7 +202,7 @@ class CartController extends Controller
             foreach ($cart as $item) {
                 $item_product = $item->product()->first();
                 if ($item_product) :
-                    $item->total = ((int) $item_product->price * (int) $item->quantity);
+                    $item->total = ((int) $item_product->price);
                     $sub_total += $item->total;
                 endif;
                 $item->dose_product_missing = $item_product ? false : true;

@@ -1,31 +1,31 @@
 @extends('Admin.layouts.main')
 
-@section("title", "Consultations - Edit")
-@section("loading_txt", "Update")
+@section("title", __("consultations.title_edit"))
+@section("loading_txt", __("consultations.loading_txt_update"))
 
 @section("content")
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Update consultation</h1>
-    <a href="{{ route("admin.consultations.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
+    <h1 class="h3 mb-0 text-gray-800">{{ __("consultations.update_consultation") }}</h1>
+    <a href="{{ route("admin.consultations.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> {{ __("consultations.back") }}
+    </a>
 </div>
 
 <div class="card p-3 mb-3" id="consultations_wrapper">
     <div class="d-flex justify-content-between" style="gap: 16px">
         <div class="w-100">
             <div class="form-group w-100">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name"  placeholder="consultation Name" v-model="name">
+                <label for="name" class="form-label">{{ __("consultations.name") }}</label>
+                <input type="text" class="form-control" id="name" placeholder="{{ __("consultations.name_placeholder") }}" v-model="name">
             </div>
             <div class="form-group w-100">
-                <label for="name" class="form-label">Name in arabic</label>
-                <input type="text" class="form-control" id="name"  placeholder="City Name in arabic" v-model="name_ar">
+                <label for="name_ar" class="form-label">{{ __("consultations.name_ar") }}</label>
+                <input type="text" class="form-control" id="name_ar" placeholder="{{ __("consultations.name_ar_placeholder") }}" v-model="name_ar">
             </div>
-
         </div>
     </div>
     <div class="form-group">
-        <button class="btn btn-success w-25" @click="update">Update</button>
+        <button class="btn btn-success w-25" @click="update">{{ __("consultations.update_button") }}</button>
     </div>
 </div>
 
@@ -93,7 +93,7 @@ createApp({
                 document.getElementById('errors').innerHTML = ''
                 let err = document.createElement('div')
                 err.classList = 'error'
-                err.innerHTML = 'server error try again later'
+                err.innerHTML = '{{ __("consultations.server_error") }}'
                 document.getElementById('errors').append(err)
                 $('#errors').fadeIn('slow')
                 $('.loader').fadeOut()

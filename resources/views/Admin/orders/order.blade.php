@@ -1,106 +1,107 @@
 @extends('Admin.layouts.main')
 
-@section("title", "Order #" . $order->id . " Details")
+@section("title", __("orders.details_title", ['id' => $order->id]))
 
 @section("content")
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Order #{{$order->id}} Details</h1>
-    <a href="{{ route("admin.orders.show.all") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
+    <h1 class="h3 mb-0 text-gray-800">@lang("orders.details_heading", ['id' => $order->id])</h1>
+    <a href="{{ route("admin.orders.show.all") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> @lang("orders.back_button")
+    </a>
 </div>
 <div class="card p-3 mb-3">
-    <h2>Orderd by:</h2>
+    <h2>@lang("orders.ordered_by")</h2>
     <div class="user_details" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
         <div class="form-group">
-            <label>User Name</label>
-            <span class="form-control">{{ $order->user ? $order->user->name : "Missing" }}</span>
+            <label>@lang("orders.user_name")</label>
+            <span class="form-control">{{ $order->user ? $order->user->name : __("orders.missing") }}</span>
         </div>
         <div class="form-group">
-            <label>User Email</label>
-            <span class="form-control">{{ $order->user ? $order->user->email : "Missing" }}</span>
+            <label>@lang("orders.user_email")</label>
+            <span class="form-control">{{ $order->user ? $order->user->email : __("orders.missing") }}</span>
         </div>
         <div class="form-group">
-            <label>User Phone</label>
-            <span class="form-control">{{ $order->user ? $order->user->phone : "Missing" }}</span>
+            <label>@lang("orders.user_phone")</label>
+            <span class="form-control">{{ $order->user ? $order->user->phone : __("orders.missing") }}</span>
         </div>
     </div>
     <hr>
-    <h2>Recipient Details:</h2>
+    <h2>@lang("orders.recipient_details")</h2>
     <div class="user_details" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
         <div class="form-group">
-            <label>Recipient Name</label>
+            <label>@lang("orders.recipient_name")</label>
             <span class="form-control">{{ $order->recipient_name }}</span>
         </div>
         <div class="form-group">
-            <label>Recipient Phone</label>
+            <label>@lang("orders.recipient_phone")</label>
             <span class="form-control">{{ $order->recipient_phone }}</span>
         </div>
         <div class="form-group" style="grid-column: span 2">
-            <label>Recipient Address</label>
+            <label>@lang("orders.recipient_address")</label>
             <span class="form-control">{{ $order->recipient_address }}</span>
         </div>
     </div>
     <hr>
-    <h2>Order Information:</h2>
+    <h2>@lang("orders.order_information")</h2>
     <div class="user_details" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
         <div class="form-group">
-            <label>Status</label>
+            <label>@lang("orders.status")</label>
             <span class="form-control">
-                {{ $order->status == 1 ? "Under Review" : ($order->status == 2 ? "Confirmed" : ( ($order->status == 3 ? "Completed" : ($order->status == 0 ? "Canceled" : "Undifiened")))) }}
+                {{ $order->status == 1 ? __("orders.under_review") : ($order->status == 2 ? __("orders.confirmed") : ($order->status == 3 ? __("orders.completed") : ($order->status == 0 ? __("orders.canceled") : __("orders.undefined")))) }}
             </span>
         </div>
         <div class="form-group">
-            <label>Date</label>
+            <label>@lang("orders.date")</label>
             <span class="form-control">{{ $order->created_at }}</span>
         </div>
         <div class="form-group">
-            <label>Sub Total</label>
+            <label>@lang("orders.sub_total")</label>
             <span class="form-control">{{ $order->sub_total }}</span>
         </div>
     </div>
     <hr>
-    <h2>Order Services:</h2>
+    <h2>@lang("orders.order_services")</h2>
     <div class="table-responsive p-2">
         <table class="table table-bordered" width="100%" cellspacing="0" style="white-space: nowrap;">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Product Name</th>
-                    <th>Product Sold Price</th>
+                    <th>@lang("orders.id")</th>
+                    <th>@lang("orders.product_name")</th>
+                    <th>@lang("orders.product_sold_price")</th>
                 </tr>
             </thead>
             <tbody>
-                    @foreach ($order->products as $product)
+                @foreach ($order->products as $product)
                     @if($product->product)
-                    <tr>
-                        <td>{{ $product->product->id }}</td>
-                        <td>{{ $product->product->name }}</td>
-                        <td>{{ $product->price_in_order }}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $product->product->id }}</td>
+                            <td>{{ $product->product->name }}</td>
+                            <td>{{ $product->price_in_order }}</td>
+                        </tr>
                     @else
-                    <tr class="text-center text-danger">
-                        <td colspan="5">Missing Product may be deleted</td>
-                    </tr>
+                        <tr class="text-center text-danger">
+                            <td colspan="5">@lang("orders.missing_product")</td>
+                        </tr>
                     @endif
-                    @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>
 
     <div class="btns d-flex gap-3 justify-content-center">
-
         @if($order->status !== 3 && $order->status !== 0)
             <a href="{{route('admin.orders.approve', ['id' => $order->id])}}" class="btn btn-success w-25 m-2">
-                {{ $order->status === 1 ? "Confirm!" : '' }}
-                {{ $order->status === 2 ? "Complete!" : '' }}
+                {{ $order->status === 1 ? __("orders.confirm_button") : '' }}
+                {{ $order->status === 2 ? __("orders.complete_button") : '' }}
             </a>
         @endif
 
         @if($order->status !== 3 && $order->status !== 0)
-            <a href="{{route('admin.orders.cancel', ['id' => $order->id])}}"class="btn btn-danger w-25 m-2">Cancel</a>
+            <a href="{{route('admin.orders.cancel', ['id' => $order->id])}}"class="btn btn-danger w-25 m-2">
+                @lang("orders.cancel_button")
+            </a>
         @endif
     </div>
-
 </div>
 
-@endSection
+@endsection

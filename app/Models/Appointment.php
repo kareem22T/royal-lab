@@ -28,7 +28,7 @@ class Appointment extends Model
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function doctor()
+    public function service()
     {
         return $this->belongsTo('App\Models\Product', 'service_id');
     }

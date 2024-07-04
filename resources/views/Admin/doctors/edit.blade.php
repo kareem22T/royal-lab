@@ -1,57 +1,57 @@
 @extends('Admin.layouts.main')
 
-@section("title", "Regions - Edit")
-@section("loading_txt", "Update")
+@section("title", __("doctors.update_doctor"))
+@section("loading_txt", __("doctors.update"))
 
 @section("content")
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Update doctor</h1>
-    <a href="{{ route("admin.doctors.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
+    <h1 class="h3 mb-0 text-gray-800">{{ __("doctors.update_doctor") }}</h1>
+    <a href="{{ route("admin.doctors.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> {{ __("doctors.back") }}
+    </a>
 </div>
 
 <div class="card p-3 mb-3" id="doctors_wrapper">
     <div class="d-flex justify-content-between" style="gap: 16px">
         <div class="w-100">
             <div class="form-group w-100">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name"  placeholder="doctor Name" v-model="name">
+                <label for="name" class="form-label">{{ __("doctors.name") }}</label>
+                <input type="text" class="form-control" id="name" placeholder="{{ __("doctors.name") }}" v-model="name">
             </div>
             <div class="form-group w-100">
-                <label for="name" class="form-label">Name in arabic</label>
-                <input type="text" class="form-control" id="name"  placeholder="City Name in arabic" v-model="name_ar">
+                <label for="name_ar" class="form-label">{{ __("doctors.name_in_arabic") }}</label>
+                <input type="text" class="form-control" id="name_ar" placeholder="{{ __("doctors.name_in_arabic") }}" v-model="name_ar">
             </div>
-
         </div>
     </div>
     <div class="d-flex justify-content-between mb-4">
-        <h2>Doctor specializations</h2>
-        <button class="btn btn-primary" @click="handleAddSpecialization">Add Specialization</button>
-     </div>
-     <table class="table" v-if="specializations && specializations.length > 0">
+        <h2>{{ __("doctors.doctor_specializations") }}</h2>
+        <button class="btn btn-primary" @click="handleAddSpecialization">{{ __("doctors.add_specialization") }}</button>
+    </div>
+    <table class="table" v-if="specializations && specializations.length > 0">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Name in Arabic</th>
+            <th scope="col">{{ __("doctors.name") }}</th>
+            <th scope="col">{{ __("doctors.name_in_arabic") }}</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="specialization, index in specializations" :key="index">
+          <tr v-for="(specialization, index) in specializations" :key="index">
             <td>
-                <input type="text" name="size" id="size" class="form-control" placeholder="Name" v-model="specializations[index]['name']" required>
+                <input type="text" name="specialization_name" id="specialization_name" class="form-control" placeholder="{{ __("doctors.name") }}" v-model="specializations[index]['name']" required>
             </td>
             <td>
-                <input type="text" name="Flavour" id="Flavour" class="form-control" placeholder="Name ar" v-model="specializations[index]['name_ar']" required>
+                <input type="text" name="specialization_name_ar" id="specialization_name_ar" class="form-control" placeholder="{{ __("doctors.name_in_arabic") }}" v-model="specializations[index]['name_ar']" required>
             </td>
             <td>
                 <button class="btn btn-danger" @click="handleRemoveSpecialization(index)">Remove</button>
             </td>
           </tr>
         </tbody>
-      </table>
+    </table>
     <div class="form-group">
-        <button class="btn btn-success w-25" @click="update">Update</button>
+        <button class="btn btn-success w-25" @click="update">{{ __("doctors.update") }}</button>
     </div>
 </div>
 
@@ -68,14 +68,9 @@ createApp({
             name: '{{ $doctor->name }}',
             name_ar: '{{ $doctor->name_ar }}',
             specializations: @json($doctor->specializations),
-
         }
     },
     methods: {
-        handleChangeThumbnail(event) {
-            this.thumbnail = event.target.files[0]
-            this.thumbnail_path = URL.createObjectURL(event.target.files[0])
-        },
         handleAddSpecialization() {
             this.specializations.push({
                 name: "",
@@ -93,13 +88,7 @@ createApp({
                     name: this.name,
                     name_ar: this.name_ar,
                     specializations: this.specializations,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                },
-                );
+                });
                 if (response.data.status === true) {
                     document.getElementById('errors').innerHTML = ''
                     let error = document.createElement('div')

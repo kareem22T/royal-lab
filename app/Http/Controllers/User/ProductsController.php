@@ -22,7 +22,9 @@ class ProductsController extends Controller
         $sortKey =($request->sort && $request->sort == "HP") || ( $request->sort && $request->sort == "LP") ? "price" :"created_at";
         $sortWay = $request->sort && $request->sort == "HP" ? "desc" : ( $request->sort && $request->sort  == "LP" ? "asc" : "desc");
 
-        $products = Product::orderBy($sortKey, $sortWay)->paginate($per_page);
+        $products = Product::orderBy($sortKey, $sortWay)
+        ->where('type', 1)
+        ->paginate($per_page);
 
         return $this->handleResponse(
             true,
@@ -53,7 +55,9 @@ class ProductsController extends Controller
         $sortKey =($request->sort && $request->sort == "HP") || ( $request->sort && $request->sort == "LP") ? "price" :"created_at";
         $sortWay = $request->sort && $request->sort == "HP" ? "desc" : ( $request->sort && $request->sort  == "LP" ? "asc" : "desc");
 
-        $products = Product::orderBy($sortKey, $sortWay)->get();
+        $products = Product::orderBy($sortKey, $sortWay)
+        ->where('type', 1)
+        ->get();
 
         return $this->handleResponse(
             true,
@@ -86,6 +90,7 @@ class ProductsController extends Controller
         $search = $request->search ? $request->search : '';
 
         $query = Product::with(["gallery"])
+            ->where('type', 1)
             ->where(function($q) use ($search) {
                 $q->where('name', 'like', '%' . $search . '%')
                   ->orWhere('description', 'like', '%' . $search . '%')

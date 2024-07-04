@@ -5,37 +5,38 @@
 
 @section("content")
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Update Branch</h1>
-    <a href="{{ route("admin.branches.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
+    <h1 class="h3 mb-0 text-gray-800">@lang('branches.update_branch')</h1>
+    <a href="{{ route("admin.branches.show") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> @lang('branches.back')
+    </a>
 </div>
 
 <div class="card p-3 mb-3" id="branches_wrapper">
     <div class="d-flex justify-content-between" style="gap: 16px">
         <div class="w-100">
             <div class="form-group w-100">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Branch Address" v-model="address">
+                <label for="address" class="form-label">@lang('branches.address')</label>
+                <input type="text" class="form-control" id="address" placeholder="@lang('branches.address_placeholder')" v-model="address">
             </div>
             <div class="form-group w-100">
-                <label for="address" class="form-label">Address in arabic</label>
-                <input type="text" class="form-control" id="address"  placeholder="Branch Address in arabic" v-model="address_ar">
+                <label for="address_ar" class="form-label">@lang('branches.address_ar')</label>
+                <input type="text" class="form-control" id="address_ar" placeholder="@lang('branches.address_ar_placeholder')" v-model="address_ar">
             </div>
             <div class="form-group w-100">
-                <label for="phone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="phone" placeholder="Branch Phone" v-model="phone">
+                <label for="phone" class="form-label">@lang('branches.phone')</label>
+                <input type="text" class="form-control" id="phone" placeholder="@lang('branches.phone_placeholder')" v-model="phone">
             </div>
             <div class="form-group w-100">
-                <label for="city_id" class="form-label">City</label>
+                <label for="city_id" class="form-label">@lang('branches.city')</label>
                 <select class="form-control" id="city_id" v-model="city_id">
-                    <option value="">Select City</option>
+                    <option value="">@lang('branches.select_city')</option>
                     <option v-for="city in cities" :value="city.id">@{{ city.name }}</option>
                 </select>
             </div>
             <div class="form-group w-100">
-                <label for="region_id" class="form-label">Region</label>
+                <label for="region_id" class="form-label">@lang('branches.region')</label>
                 <select class="form-control" id="region_id" v-model="region_id">
-                    <option value="">Select Region</option>
+                    <option value="">@lang('branches.select_region')</option>
                     <option v-for="region in regions" :value="region.id">@{{ region.name }}</option>
                 </select>
             </div>
@@ -46,7 +47,7 @@
         $regions = App\Models\Region::all();
     @endphp
     <div class="form-group">
-        <button class="btn btn-success w-25" @click="update">Update</button>
+        <button class="btn btn-success w-25" @click="update">@lang('branches.update')</button>
     </div>
 </div>
 
@@ -124,7 +125,7 @@ createApp({
                 document.getElementById('errors').innerHTML = '';
                 let err = document.createElement('div');
                 err.classList = 'error';
-                err.innerHTML = 'server error try again later';
+                err.innerHTML = '@lang('branches.server_error')';
                 document.getElementById('errors').append(err);
                 $('#errors').fadeIn('slow');
                 $('.loader').fadeOut();

@@ -13,9 +13,10 @@
     }
 </style>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Branchs</h1>
-    <a href="{{ route("admin.branches.add") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-plus fa-sm text-white-50"></i> Create branch</a>
+    <h1 class="h3 mb-0 text-gray-800">@lang('branches.title')</h1>
+    <a href="{{ route("admin.branches.add") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm text-white-50"></i> @lang('branches.create_branch')
+    </a>
 </div>
 
 <div class="card shadow mb-4">
@@ -24,8 +25,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th>Address</th>
-                        <th>Actions</th>
+                        <th>@lang('branches.address')</th>
+                        <th>@lang('branches.actions')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,8 +34,8 @@
                         <tr>
                             <td>{{ $cat->address }}</td>
                             <td>
-                                <a href="{{ route("admin.branches.edit", ["id" => $cat->id]) }}" class="btn btn-success">Edit</a>
-                                <a href="{{ route("admin.branches.delete.confirm", ["id" => $cat->id]) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ route("admin.branches.edit", ["id" => $cat->id]) }}" class="btn btn-success">@lang('branches.edit')</a>
+                                <a href="{{ route("admin.branches.delete.confirm", ["id" => $cat->id]) }}" class="btn btn-danger">@lang('branches.delete')</a>
                             </td>
                         </tr>
                     @endforeach
@@ -45,7 +46,6 @@
 </div>
 
 @endSection
-
 
 @section("scripts")
 <script src="{{ asset('/admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyMsgsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\AuthController;
@@ -113,5 +114,9 @@ Route::post("/prescription/put", [PrescriptionsController::class, "store"])->mid
 
 // results endpoints
 Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth:sanctum');
+
+
+// placeMsg endpoints
+Route::post("/company/placeMsg", [CompanyMsgsController::class, "placeMsg"]);
 
 

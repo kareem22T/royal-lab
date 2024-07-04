@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LocalController;
 include(base_path('routes/admin.php'));
 
 Route::get('/', function () {
@@ -19,3 +19,5 @@ Route::get('/unauthorized', function () {
     ]
     , 401);
 });
+
+Route::get("/locale/{lang}", [LocalController::class, "setLocal"]);

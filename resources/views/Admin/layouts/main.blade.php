@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/admin/css/sb-admin-2.min.css') }}?v={{time()}}" rel="stylesheet">
     <link href="{{ asset('/admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
@@ -111,12 +111,35 @@
             align-items: center;
             gap: 8px;
         }
-
+        .ar .sidebar{
+            padding-right: 0;
+            padding-left: 2rem;
+            min-width: 270px;
+        }
+        .ar * {
+            text-align: right !important
+        }
+        .ar .sidebar .nav-item .nav-link {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 8px;
+        }
+        .ar .sidebar .nav-item .nav-link[data-toggle="collapse"].collapsed::after {
+            transform: rotateY(180deg);
+        }
+        .ar .navbar-nav {
+            margin-left: 0 !important;
+            margin-right: auto;
+        }
+        .btn {
+            text-align: center !important
+        }
     </style>
 
 </head>
 
-<body id="page-top">
+<body dir="@lang("config.dir")" id="page-top" class="@lang('config.key')">
     <div id="errors"></div>
     <div class="loader">
         <div class="wrapper">
@@ -140,7 +163,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin Panel</div>
+                <div class="sidebar-brand-text mx-3">@lang("messages.nav.admin_panel")</div>
             </a>
 
             <!-- Divider -->
@@ -150,7 +173,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>@lang("messages.nav.dashboard")</span></a>
             </li>
 
             <!-- Divider -->
@@ -158,7 +181,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Manage Inventory
+                @lang("messages.nav.manage_inventory")
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -166,12 +189,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-box"></i>
-                    <span>Services and Packages</span>
+                    <span>@lang("messages.nav.services_packages")</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.products.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.products.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.products.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.products.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -180,12 +203,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cities"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-globe"></i>
-                    <span>Cities</span>
+                    <span>@lang("messages.nav.cities")</span>
                 </a>
                 <div id="cities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.cities.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.cities.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.cities.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.cities.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -194,12 +217,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regions"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-road"></i>
-                    <span>Regions</span>
+                    <span>@lang("messages.nav.regions")</span>
                 </a>
                 <div id="regions" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.regions.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.regions.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.regions.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.regions.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -209,12 +232,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#branches"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-map"></i>
-                    <span>Branches</span>
+                    <span>@lang("messages.nav.branches")</span>
                 </a>
                 <div id="branches" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.branches.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.branches.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.branches.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.branches.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -224,12 +247,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#doctors"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-stethoscope"></i>
-                    <span>Doctors</span>
+                    <span>@lang("messages.nav.doctors")</span>
                 </a>
                 <div id="doctors" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.doctors.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.doctors.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.doctors.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.doctors.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -238,12 +261,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#consultations"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-laptop-medical"></i>
-                    <span>Consultations</span>
+                    <span>@lang("messages.nav.consultations")</span>
                 </a>
                 <div id="consultations" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.consultations.show") }}">Preview</a>
-                        <a class="collapse-item" href="{{ route("admin.consultations.add") }}">Add</a>
+                        <a class="collapse-item" href="{{ route("admin.consultations.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.consultations.add") }}">@lang("messages.nav.add")</a>
                     </div>
                 </div>
             </li>
@@ -252,14 +275,21 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.prescriptions')}}">
                     <i class="fas fa-fw fa-capsules"></i>
-                    <span>Prescriptions</span></a>
+                    <span>@lang("messages.nav.Prescriptions")</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.users')}}">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Users</span></a>
+                    <span>@lang("messages.nav.users")</span></a>
+            </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.msgs')}}">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>@lang("messages.nav.com_msgs")</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -269,7 +299,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Manage Request
+                @lang("messages.nav.manage_requests")
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -277,15 +307,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#heading3"
                     aria-expanded="true" aria-controls="heading3">
                     <i class="fas fa-fw fa-receipt"></i>
-                    <span>Orders</span>
+                    <span>@lang("messages.nav.orders")</span>
                 </a>
                 <div id="heading3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.orders.show.all") }}">All</a>
-                        <a class="collapse-item" href="{{ route("admin.orders.show.review") }}">Under review</a>
-                        <a class="collapse-item" href="{{ route("admin.orders.show.confirmed") }}">Confirmed</a>
-                        <a class="collapse-item" href="{{ route("admin.orders.show.completed") }}">Completed</a>
-                        <a class="collapse-item" href="{{ route("admin.orders.show.canceled") }}">Canceled</a>
+                        <a class="collapse-item" href="{{ route("admin.orders.show.all") }}">@lang("messages.nav.all")</a>
+                        <a class="collapse-item" href="{{ route("admin.orders.show.review") }}">@lang("messages.nav.under_review")</a>
+                        <a class="collapse-item" href="{{ route("admin.orders.show.confirmed") }}">@lang("messages.nav.confirmed")</a>
+                        <a class="collapse-item" href="{{ route("admin.orders.show.completed") }}">@lang("messages.nav.completed")</a>
+                        <a class="collapse-item" href="{{ route("admin.orders.show.canceled") }}">@lang("messages.nav.canceled")</a>
                     </div>
                 </div>
             </li>
@@ -295,15 +325,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#asdadf"
                     aria-expanded="true" aria-controls="asdadf">
                     <i class="fas fa-fw fa-receipt"></i>
-                    <span>Appointments</span>
+                    <span>@lang("messages.nav.appointments")</span>
                 </a>
                 <div id="asdadf" class="collapse" aria-labelledby="asdadf" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.appointments.show.all") }}">All</a>
-                        <a class="collapse-item" href="{{ route("admin.appointments.show.review") }}">Under review</a>
-                        <a class="collapse-item" href="{{ route("admin.appointments.show.confirmed") }}">Confirmed</a>
-                        <a class="collapse-item" href="{{ route("admin.appointments.show.completed") }}">Completed</a>
-                        <a class="collapse-item" href="{{ route("admin.appointments.show.canceled") }}">Canceled</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.all") }}">@lang("messages.nav.all")</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.review") }}">@lang("messages.nav.under_review")</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.confirmed") }}">@lang("messages.nav.confirmed")</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.completed") }}">@lang("messages.nav.completed")</a>
+                        <a class="collapse-item" href="{{ route("admin.appointments.show.canceled") }}">@lang("messages.nav.canceled")</a>
                     </div>
                 </div>
             </li>
@@ -313,15 +343,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#medical_consultations"
                     aria-expanded="true" aria-controls="asdadf">
                     <i class="fas fa-fw fa-receipt"></i>
-                    <span>Doctor Consultations</span>
+                    <span>@lang("messages.nav.doctor_consultations")</span>
                 </a>
                 <div id="medical_consultations" class="collapse" aria-labelledby="asdadf" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.all") }}">All</a>
-                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.review") }}">Under review</a>
-                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.confirmed") }}">Confirmed</a>
-                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.completed") }}">Completed</a>
-                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.canceled") }}">Canceled</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.all") }}">@lang("messages.nav.all")</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.review") }}">@lang("messages.nav.under_review")</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.confirmed") }}">@lang("messages.nav.confirmed")</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.completed") }}">@lang("messages.nav.completed")</a>
+                        <a class="collapse-item" href="{{ route("admin.medical_consultations.show.canceled") }}">@lang("messages.nav.canceled")</a>
                     </div>
                 </div>
             </li>
@@ -330,15 +360,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Visits"
                     aria-expanded="true" aria-controls="Visits">
                     <i class="fas fa-fw fa-receipt"></i>
-                    <span>Visits</span>
+                    <span>@lang("messages.nav.visits")</span>
                 </a>
                 <div id="Visits" class="collapse" aria-labelledby="Visits" data-parent="#Visits">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route("admin.visits.show.all") }}">All</a>
-                        <a class="collapse-item" href="{{ route("admin.visits.show.review") }}">Under review</a>
-                        <a class="collapse-item" href="{{ route("admin.visits.show.confirmed") }}">Confirmed</a>
-                        <a class="collapse-item" href="{{ route("admin.visits.show.completed") }}">Completed</a>
-                        <a class="collapse-item" href="{{ route("admin.visits.show.canceled") }}">Canceled</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.all") }}">@lang("messages.nav.all")</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.review") }}">@lang("messages.nav.under_review")</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.confirmed") }}">@lang("messages.nav.confirmed")</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.completed") }}">@lang("messages.nav.completed")</a>
+                        <a class="collapse-item" href="{{ route("admin.visits.show.canceled") }}">@lang("messages.nav.canceled")</a>
                     </div>
                 </div>
             </li>
@@ -367,20 +397,6 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -412,22 +428,27 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello Admin!</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{ asset("/admin/img/undraw_profile.svg") }}">
+                        <div class="d-flex align-items-center" style="gap: 16px">
+                            <a href="/locale/@lang("config.switch_key")" class="btn btn-secondary">
+                                @lang("config.switch")
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 ml-2 d-none d-lg-inline text-gray-600 small">@lang("nav.hello") Admin!</span>
+                                    <img class="img-profile rounded-circle"
+                                        src="{{ asset("/admin/img/undraw_profile.svg") }}">
                                 </a>
-                            </div>
-                        </li>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </div>
 
                     </ul>
 

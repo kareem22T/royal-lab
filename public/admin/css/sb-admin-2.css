@@ -65,7 +65,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #858796;
-  text-align: left;
+
   background-color: #fff;
 }
 
@@ -216,7 +216,7 @@ caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   color: #858796;
-  text-align: left;
+
   caption-side: bottom;
 }
 
@@ -3025,7 +3025,7 @@ input[type="button"].btn-block {
   margin: 0.125rem 0 0;
   font-size: 0.85rem;
   color: #858796;
-  text-align: left;
+
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
@@ -5859,7 +5859,7 @@ a.close.disabled {
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
-  text-align: left;
+
   text-align: start;
   text-decoration: none;
   text-shadow: none;
@@ -5972,7 +5972,7 @@ a.close.disabled {
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
-  text-align: left;
+
   text-align: start;
   text-decoration: none;
   text-shadow: none;
@@ -10534,7 +10534,7 @@ a:focus {
   .sidebar .nav-item .nav-link {
     display: block;
     width: 100%;
-    text-align: left;
+
     padding: 1rem;
     width: 14rem;
   }
@@ -10566,7 +10566,7 @@ a:focus {
     display: inline;
   }
   .sidebar .sidebar-heading {
-    text-align: left;
+
   }
   .sidebar.toggled {
     overflow: visible;

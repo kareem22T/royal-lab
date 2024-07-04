@@ -4,7 +4,7 @@
 
 @section("content")
     <div class="card p-4">
-        <h1 class="text-center m-2" style="font-weight: 600; color: #00b341">Successfuly Operation</h1>
+        <h1 class="text-center m-2" style="font-weight: 600; color: #00b341;text-align: center !important;">@lang('appointments.Successfuly_Operation')</h1>
         <svg xmlns="http://www.w3.org/2000/svg" style="  width: 250px;  height: 250px;
         margin: auto;" class="icon icon-tabler icon-tabler-checklist" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -14,8 +14,8 @@
             <path d="M9 12h2" />
           </svg>
         <div class="btns d-flex justify-content-center align-items-center">
-            <a href="{{route('admin.appointments.appointment.details', ['id' => $appointment->id])}}" class="btn btn-info w-25 m-3">Show Appointment</a>
-            <a href="{{route('admin.appointments.show.all')}}" class="btn btn-secondary w-25 m-3">Back To List</a>
+            <a href="{{route('admin.appointments.appointment.details', ['id' => $appointment->id])}}" class="btn btn-info w-25 m-3">@lang('appointments.show_appointment')</a>
+            <a href="{{route('admin.appointments.show.all')}}" class="btn btn-secondary w-25 m-3">@lang('appointments.backtolist')</a>
         </div>
     </div>
 @endSection

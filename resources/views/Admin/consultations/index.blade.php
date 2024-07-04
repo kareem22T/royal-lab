@@ -1,6 +1,6 @@
 @extends('Admin.layouts.main')
 
-@section("title", "Consultations")
+@section("title", __("consultations.title"))
 
 @php
     $consultations = App\Models\Consultation::all();
@@ -13,9 +13,10 @@
     }
 </style>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Consultations</h1>
-    <a href="{{ route("admin.consultations.add") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-plus fa-sm text-white-50"></i> Create consultation</a>
+    <h1 class="h3 mb-0 text-gray-800">{{ __("consultations.title") }}</h1>
+    <a href="{{ route("admin.consultations.add") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm text-white-50"></i> {{ __("consultations.create_consultation") }}
+    </a>
 </div>
 
 <div class="card shadow mb-4">
@@ -24,8 +25,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Actions</th>
+                        <th>{{ __("consultations.name") }}</th>
+                        <th>{{ __("consultations.actions") }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,8 +34,8 @@
                         <tr>
                             <td>{{ $cat->name }}</td>
                             <td>
-                                <a href="{{ route("admin.consultations.edit", ["id" => $cat->id]) }}" class="btn btn-success">Edit</a>
-                                <a href="{{ route("admin.consultations.delete.confirm", ["id" => $cat->id]) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ route("admin.consultations.edit", ["id" => $cat->id]) }}" class="btn btn-success">{{ __("consultations.edit") }}</a>
+                                <a href="{{ route("admin.consultations.delete.confirm", ["id" => $cat->id]) }}" class="btn btn-danger">{{ __("consultations.delete") }}</a>
                             </td>
                         </tr>
                     @endforeach
