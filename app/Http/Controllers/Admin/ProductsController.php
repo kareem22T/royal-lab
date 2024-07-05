@@ -140,6 +140,10 @@ class ProductsController extends Controller
         }
 
         $product = Product::find($request->id);
+        if (!$request->main_image) {
+            $main_image_name = $this->saveImg($request->main_image, 'images/uploads/Products');
+            $product->main_image = '/images/uploads/Products/' . $main_image_name;
+        }
 
         $product->name = $request->name;
         $product->description = $request->description;
