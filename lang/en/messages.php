@@ -26,6 +26,7 @@ return [
         'settings' => 'Settings',
         'users' => 'Users',
         'com_msgs' => 'Companies Messages',
+        'jobrequests' => 'Job Requests',
         'all' => 'All',
         'under_review' => 'Under Review',
         'confirmed' => 'Confirmed',

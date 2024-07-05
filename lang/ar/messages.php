@@ -18,6 +18,7 @@ return [
         'cities' => 'المدن',
         'doctors' => 'الاطباء',
         'regions' => 'المناطق',
+        'jobrequests' => 'طلبات التوظيف',
         'com_msgs' => 'رساءل الشركات',
         'branches' => 'الفروع',
         'categories' => 'الفئات',

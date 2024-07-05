@@ -278,6 +278,12 @@
                     <span>@lang("messages.nav.Prescriptions")</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.cv')}}">
+                    <i class="fas fa-fw fa-capsules"></i>
+                    <span>@lang("messages.nav.jobrequests")</span></a>
+            </li>
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.users')}}">

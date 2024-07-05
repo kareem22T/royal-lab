@@ -172,6 +172,9 @@ Route::prefix('admin')->group(function () {
         Route::get("/prescriptions", function() {
             return view("Admin.prescriptions.index");
         })->name("admin.prescriptions");
+        Route::get("/job-requests", function() {
+            return view("Admin.cv.index");
+        })->name("admin.cv");
         Route::get("/companies-messages", function() {
             return view("Admin.companies_msgs.index");
         })->name("admin.msgs");
