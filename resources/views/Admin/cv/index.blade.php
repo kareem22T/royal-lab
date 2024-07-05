@@ -31,9 +31,8 @@
                 <tbody>
                     @foreach ($Prescriptions as $cat)
                         <tr>
-                            <td>{{ $cat->user?->name ?? __("prescriptions.missing") }}</td>
-                            <td>{{ $cat->user?->email ?? __("prescriptions.missing") }}</td>
-                            <td>{{ $cat->user?->phone ?? __("prescriptions.missing") }}</td>
+                            <td>{{ $cat->name ?? __("prescriptions.missing") }}</td>
+                            <td>{{ $cat->phone ?? __("prescriptions.missing") }}</td>
                             <td>{{ $cat->notes ?? __("prescriptions.na") }}</td>
                             <td>
                                 <a href="{{ $cat->file_path }}" download="download" target="_blank" class="btn btn-success">{{ __("prescriptions.download") }}</a>

@@ -280,7 +280,7 @@
 
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.cv')}}">
-                    <i class="fas fa-fw fa-capsules"></i>
+                    <i class="fas fa-fw fa-user-tie"></i>
                     <span>@lang("messages.nav.jobrequests")</span></a>
             </li>
 
