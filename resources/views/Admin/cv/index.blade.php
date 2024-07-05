@@ -3,7 +3,7 @@
 @section("title", "Jobs Requests")
 
 @php
-    $Prescriptions = App\Models\Apply_job::with("user")->get();
+    $Prescriptions = App\Models\Apply_job::all();
 @endphp
 
 @section("content")
