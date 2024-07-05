@@ -38,7 +38,7 @@ class JobController extends Controller
         $Prescription = Apply_job::create([
             "file_path" => '/images/uploads/CV/' . $file,
             "name" => $request->name,
-            "name" => $request->phone,
+            "phone" => $request->phone,
             "notes" => $request->notes ?? null
         ]);
 
