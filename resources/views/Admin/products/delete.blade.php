@@ -52,7 +52,7 @@ createApp({
         return {
             id: '{{ $product->id }}',
             name: '{{ $product->name }}',
-            description: '{{ $product->description }}',
+            description: @json($product->description),
             price: '{{ $product->price }}',
             quantity: '{{ $product->quantity }}',
         }
