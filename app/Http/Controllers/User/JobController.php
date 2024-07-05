@@ -39,7 +39,7 @@ class JobController extends Controller
             "file_path" => '/images/uploads/CV/' . $file,
             "name" => $request->name,
             "phone" => $request->phone,
-            "notes" => $request->notes ?? null
+            "notes" => $request->notes ?? "N/A"
         ]);
 
         if ($Prescription) {
