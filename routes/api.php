@@ -18,6 +18,7 @@ use App\Http\Controllers\User\HomeEndpoints;
 use App\Http\Controllers\User\RegionController;
 use App\Http\Controllers\User\CityController;
 use App\Http\Controllers\User\BranchController;
+use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\JobController;
 use App\Http\Controllers\User\ResultsController;
 
@@ -120,5 +121,9 @@ Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth
 
 // placeMsg endpoints
 Route::post("/company/placeMsg", [CompanyMsgsController::class, "placeMsg"]);
+
+// place comment endpoints
+Route::post("/comment/put", [CommentController::class, "store"]);
+Route::get("/comments/get", [CommentController::class, "get"]);
 
 

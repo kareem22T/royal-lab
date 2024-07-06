@@ -284,6 +284,12 @@
                     <span>@lang("messages.nav.jobrequests")</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.comments')}}">
+                    <i class="fas fa-fw fa-comment"></i>
+                    <span>@lang("messages.nav.comments")</span></a>
+            </li>
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.users')}}">

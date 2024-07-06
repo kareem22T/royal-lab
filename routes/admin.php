@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ResultsController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\User\CommentController;
 
 Route::prefix('admin')->group(function () {
     Route::post("login", [AuthController::class, "login"])->middleware([GuestAdminMiddleware::class])->name("admin.login.post");
@@ -178,6 +179,9 @@ Route::prefix('admin')->group(function () {
         Route::get("/companies-messages", function() {
             return view("Admin.companies_msgs.index");
         })->name("admin.msgs");
+        Route::get("/comments", function() {
+            return view("Admin.comments.index");
+        })->name("admin.comments");
 
         Route::get("/users", [ResultsController::class, "index"])->name("admin.users");
         Route::get("/users/{id}/result/{result_id}", [ResultsController::class, "Result"])->name("admin.result");
@@ -185,5 +189,6 @@ Route::prefix('admin')->group(function () {
         Route::get("/users/{id}/result_add/add", [ResultsController::class, "uploadResultIndex"])->name("admin.result.add.upload");
         Route::post("/users/result/update", [ResultsController::class, "update"])->name("admin.result.update");
         Route::post("/users/result/store", [ResultsController::class, "store"])->name("admin.results.create");
+        Route::post("/toggle-show-comment", [CommentController::class, "toggleShow"])->name("admin.comment.shownhide");
     });
 });

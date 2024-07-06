@@ -19,6 +19,7 @@ return [
         'doctors' => 'الاطباء',
         'regions' => 'المناطق',
         'jobrequests' => 'طلبات التوظيف',
+        "comments" => "التعليقات",
         'com_msgs' => 'رساءل الشركات',
         'branches' => 'الفروع',
         'categories' => 'الفئات',
