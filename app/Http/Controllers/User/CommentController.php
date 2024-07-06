@@ -18,7 +18,7 @@ class CommentController extends Controller
     use HandleResponseTrait, SaveImageTrait, DeleteImageTrait;
 
     public function get() {
-        return Comment::where("show", true);
+        return Comment::where("show", true)->get();
     }
     public function store(Request $request) {
         $user = $request->user();
