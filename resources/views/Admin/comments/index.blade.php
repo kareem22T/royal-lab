@@ -37,15 +37,16 @@
                             <td>{{ $cat->phone ?? __("prescriptions.missing") }}</td>
                             <td>{{ $cat->comment ?? __("prescriptions.na") }}</td>
                             <td>
-                                {{$cat->show}}
                                 @if($cat->show)
                                     <form method="POST" action="{{route('admin.comment.shownhide')}}">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$cat->id}}">
                                         <button type="submit" class="btn btn-danger">Hide</button>
                                     </form>
-                                @else
+                                    @else
                                     <form method="POST" action="{{route('admin.comment.shownhide')}}">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$cat->id}}">
                                         <button type="submit" class="btn btn-success">Show</button>
                                     </form>
                                 @endif
