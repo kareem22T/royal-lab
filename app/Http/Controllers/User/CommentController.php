@@ -61,5 +61,7 @@ class CommentController extends Controller
             $comment->show = !$comment->show;
             $comment->save();
         }
+
+        return redirect()->back();
     }
 }

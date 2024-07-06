@@ -38,12 +38,12 @@
                             <td>{{ $cat->comment ?? __("prescriptions.na") }}</td>
                             <td>
                                 @if($cat->show)
-                                    <form action="{{route('admin.comment.shownhide')}}">
+                                    <form method="POST" action="{{route('admin.comment.shownhide')}}">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">Hide</button>
                                     </form>
                                     @else
-                                    <form action="{{route('admin.comment.shownhide')}}">
+                                    <form method="POST" action="{{route('admin.comment.shownhide')}}">
                                         @csrf
                                         <button type="submit" class="btn btn-success">Show</button>
                                     </form>
