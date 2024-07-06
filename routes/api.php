@@ -123,7 +123,7 @@ Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth
 Route::post("/company/placeMsg", [CompanyMsgsController::class, "placeMsg"]);
 
 // place comment endpoints
-Route::post("/comment/put", [CommentController::class, "store"]);
+Route::post("/comment/put", [CommentController::class, "store"])->middleware('auth:sanctum');
 Route::get("/comments/get", [CommentController::class, "get"]);
 
 
