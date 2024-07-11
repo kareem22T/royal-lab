@@ -134,6 +134,70 @@
                         </div>
                     </div>
                 </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About vision *</label>
+                            <textarea name="about_vision" class="form-control" id="about_vision" cols="30" rows="10" placeholder="about vision" value="{{(isset($settingsArray["about_vision"]) && $settingsArray["about_vision"]["value"]) ? $settingsArray["about_vision"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About vision arabic *</label>
+                            <textarea name="about_vision_ar" class="form-control" id="about_vision_ar" cols="30" rows="10" placeholder="about vision arabic" value="{{(isset($settingsArray["about_vision_ar"]) && $settingsArray["about_vision_ar"]["value"]) ? $settingsArray["about_vision_ar"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About msg *</label>
+                            <textarea name="about_msg" class="form-control" id="about_msg" cols="30" rows="10" placeholder="about msg" value="{{(isset($settingsArray["about_msg"]) && $settingsArray["about_msg"]["value"]) ? $settingsArray["about_msg"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About msg arabic *</label>
+                            <textarea name="about_msg_ar" class="form-control" id="about_msg_ar" cols="30" rows="10" placeholder="about msg arabic" value="{{(isset($settingsArray["about_msg_ar"]) && $settingsArray["about_msg_ar"]["value"]) ? $settingsArray["about_msg_ar"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About value *</label>
+                            <textarea name="about_value" class="form-control" id="about_value" cols="30" rows="10" placeholder="about value" value="{{(isset($settingsArray["about_value"]) && $settingsArray["about_value"]["value"]) ? $settingsArray["about_value"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About value arabic *</label>
+                            <textarea name="about_value_ar" class="form-control" id="about_value_ar" cols="30" rows="10" placeholder="about value arabic" value="{{(isset($settingsArray["about_value_ar"]) && $settingsArray["about_value_ar"]["value"]) ? $settingsArray["about_value_ar"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About goals *</label>
+                            <textarea name="about_goals" class="form-control" id="about_goals" cols="30" rows="10" placeholder="about goals" value="{{(isset($settingsArray["about_goals"]) && $settingsArray["about_goals"]["value"]) ? $settingsArray["about_goals"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About goals arabic *</label>
+                            <textarea name="about_goals_ar" class="form-control" id="about_goals_ar" cols="30" rows="10" placeholder="about goals arabic" value="{{(isset($settingsArray["about_goals_ar"]) && $settingsArray["about_goals_ar"]["value"]) ? $settingsArray["about_goals_ar"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="medical_inssurence" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="w-100 mb-4 pb-3">
