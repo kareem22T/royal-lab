@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Models\Wishlist;
 use App\Models\Category;
 use App\Models\Banner;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Sanctum\PersonalAccessToken;
 class HomeEndpoints extends Controller
@@ -51,5 +52,20 @@ class HomeEndpoints extends Controller
             ],
             []
         );
+    }
+
+    public function settings() {
+        $settings = Setting::all();
+
+        // Transform settings into an associative array.
+        $settingsArray = $settings->mapWithKeys(function ($setting) {
+            return [
+                $setting->key => $setting->value
+            ];
+        })->toArray();
+
+        return response()->json([
+            "data" => $settingsArray
+        ]);
     }
 }

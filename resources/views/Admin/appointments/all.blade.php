@@ -23,6 +23,7 @@
                         <th>@lang('appointments.user_age')</th>
                         <th>@lang('appointments.status')</th>
                         <th>@lang('appointments.date')</th>
+                        <th>@lang('appointments.service')</th>
                         <th>@lang('appointments.actions')</th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                                 {{ $appointment->status == 1 ? __('appointments.under_review') : ($appointment->status == 2 ? __('appointments.confirmed') : ($appointment->status == 3 ? __('appointments.completed') : ($appointment->status == 0 ? __('appointments.canceled') : __('appointments.undefined')))) }}
                             </td>
                             <td>{{ $appointment->date }}</td>
+                            <td>{{ $appointment->service }}</td>
                             <td>
                                 <a href="{{ route('admin.appointments.appointment.details', ['id' => $appointment->id]) }}" class="btn btn-success">@lang('appointments.show')</a>
                             </td>

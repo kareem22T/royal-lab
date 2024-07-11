@@ -31,7 +31,7 @@ class AppointmentsController extends Controller
                 "age" => ["required", "string"],
                 "phone" => ["required"],
                 "branch_id" => ["required"],
-                "service_id" => ["required"],
+                "service" => ["required"],
                 "date" => ["required"],
             ]);
 
@@ -46,6 +46,7 @@ class AppointmentsController extends Controller
             }
             $request["user_id"] = $user->id;
             $request["date"] = new Carbon($request["date"]);
+            $request["service_id"] = 0;
             $appointment = Appointment::create($request->toArray());
 
             if ($appointment) {

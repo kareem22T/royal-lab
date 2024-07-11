@@ -126,4 +126,5 @@ Route::post("/company/placeMsg", [CompanyMsgsController::class, "placeMsg"]);
 Route::post("/comment/put", [CommentController::class, "store"])->middleware('auth:sanctum');
 Route::get("/comments/get", [CommentController::class, "get"]);
 
+Route::get("/settings/get", [HomeEndpoints::class, 'settings']);
 

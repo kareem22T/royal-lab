@@ -56,7 +56,7 @@
         </div>
         <div class="form-group">
             <label>@lang('appointments.service')</label>
-            <span class="form-control">{{ $appointment->service?->name }}</span>
+            <span class="form-control">{{ $appointment->service }}</span>
         </div>
         <div class="form-group">
             <label>@lang('appointments.date')</label>
