@@ -11,6 +11,7 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\OrdersController;
 use App\Http\Controllers\User\VisitsController;
 use App\Http\Controllers\User\AppointmentsController;
+use App\Http\Controllers\User\AppointmentServicesController;
 use App\Http\Controllers\User\ConsultationController;
 use App\Http\Controllers\User\TransactionsController;
 use App\Http\Controllers\User\PrescriptionsController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\User\BranchController;
 use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\JobController;
 use App\Http\Controllers\User\ResultsController;
+use App\Http\Controllers\User\TeamsController;
 
 // Users endpoints
 Route::post("/user/register", [AuthController::class, "register"]);
@@ -127,4 +129,6 @@ Route::post("/comment/put", [CommentController::class, "store"])->middleware('au
 Route::get("/comments/get", [CommentController::class, "get"]);
 
 Route::get("/settings/get", [HomeEndpoints::class, 'settings']);
+Route::get("/teams/get", [TeamsController::class, 'getAll']);
+Route::get("/services-appointment/get", [AppointmentServicesController::class, 'get']);
 

@@ -13,6 +13,7 @@ return [
         'manage_inventory' => 'إدارة المخزون',
         'manage_requests' => 'إدارة الطلبات',
         'services_packages' => 'الخدمات والحزم',
+        'appointment_services' => 'خدمات الحجز',
         'preview' => 'عرض',
         'add' => 'إضافة',
         'cities' => 'المدن',

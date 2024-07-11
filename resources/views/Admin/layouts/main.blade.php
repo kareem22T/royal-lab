@@ -200,6 +200,34 @@
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwos"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>@lang("messages.nav.services_packages")</span>
+                </a>
+                <div id="collapseTwos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.teams.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.teams.add") }}">@lang("messages.nav.add")</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoss"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-box"></i>
+                    <span>@lang("messages.nav.appointment_services")</span>
+                </a>
+                <div id="collapseTwoss" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("admin.appointment_services.show") }}">@lang("messages.nav.preview")</a>
+                        <a class="collapse-item" href="{{ route("admin.appointment_services.add") }}">@lang("messages.nav.add")</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cities"
                     aria-expanded="true" aria-controls="cities">
                     <i class="fas fa-fw fa-globe"></i>

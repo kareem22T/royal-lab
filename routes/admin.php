@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AppointmentsController;
+use App\Http\Controllers\Admin\AppointmentServicesController;
 use App\Http\Controllers\Admin\Medical_consultationsController;
 use App\Http\Controllers\Admin\MoneyRequestsContrller;
 use App\Http\Controllers\Admin\BacnnerController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ResultsController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\TeamsController;
 use App\Http\Controllers\User\CommentController;
 
 Route::prefix('admin')->group(function () {
@@ -101,6 +103,31 @@ Route::prefix('admin')->group(function () {
             Route::post("/update", [ProductsController::class, "update"])->name("admin.products.update");
             Route::get("/delete/{id}", [ProductsController::class, "deleteIndex"])->name("admin.products.delete.confirm");
             Route::post("/delete", [ProductsController::class, "delete"])->name("admin.products.delete");
+        });
+        // appointment_services
+        Route::prefix('appointment_services')->group(function () {
+            Route::get("/", [AppointmentServicesController::class, "index"])->name("admin.appointment_services.show");
+            Route::get("/toggle-disc/{id}", [AppointmentServicesController::class, "toggleappointment_serviceDiscounted"])->name("admin.appointment_services.toggleDis");
+            Route::get("/get", [AppointmentServicesController::class, "get"])->name("admin.appointment_services.get");
+            Route::get("/create", [AppointmentServicesController::class, "add"])->name("admin.appointment_services.add");
+            Route::post("/create", [AppointmentServicesController::class, "create"])->name("admin.appointment_services.create");
+            Route::get("/edit/{id}", [AppointmentServicesController::class, "edit"])->name("admin.appointment_services.edit");
+            Route::post("/update", [AppointmentServicesController::class, "update"])->name("admin.appointment_services.update");
+            Route::get("/delete/{id}", [AppointmentServicesController::class, "deleteIndex"])->name("admin.appointment_services.delete.confirm");
+            Route::post("/delete", [AppointmentServicesController::class, "delete"])->name("admin.appointment_services.delete");
+        });
+
+        // Teams
+        Route::prefix('teams')->group(function () {
+            Route::get("/", [TeamsController::class, "index"])->name("admin.teams.show");
+            Route::get("/toggle-disc/{id}", [TeamsController::class, "toggleTeamDiscounted"])->name("admin.teams.toggleDis");
+            Route::get("/get", [TeamsController::class, "get"])->name("admin.teams.get");
+            Route::get("/create", [TeamsController::class, "add"])->name("admin.teams.add");
+            Route::post("/create", [TeamsController::class, "create"])->name("admin.teams.create");
+            Route::get("/edit/{id}", [TeamsController::class, "edit"])->name("admin.teams.edit");
+            Route::post("/update", [TeamsController::class, "update"])->name("admin.teams.update");
+            Route::get("/delete/{id}", [TeamsController::class, "deleteIndex"])->name("admin.teams.delete.confirm");
+            Route::post("/delete", [TeamsController::class, "delete"])->name("admin.teams.delete");
         });
 
         // Orders

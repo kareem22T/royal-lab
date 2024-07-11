@@ -17,6 +17,7 @@ return [
         'add' => 'Add',
         'cities' => 'Cities',
         'regions' => 'Regions',
+        'Appointment_services' => 'Appointment service',
         'doctors' => 'Doctors',
         'branches' => 'Branches',
         'categories' => 'Categories',
