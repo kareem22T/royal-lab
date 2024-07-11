@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('appointments', function (Blueprint $table) {
+        Schema::table('appointmnts', function (Blueprint $table) {
             $table->integer('service_id')->nullable()->change();
             $table->string('service');
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('appointments', function (Blueprint $table) {
+        Schema::table('appointmnts', function (Blueprint $table) {
             $table->integer('service_id')->nullable(false)->change();
         });
     }
