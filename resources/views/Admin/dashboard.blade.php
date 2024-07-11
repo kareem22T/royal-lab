@@ -9,10 +9,7 @@
         @csrf
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Hero Section</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Contact</button>
+                <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Contact</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#last-section" type="button" role="tab" aria-controls="last-section" aria-selected="false">Last Section Home</button>
@@ -31,14 +28,6 @@
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="form-group">
-                    <input type="text" name="hero_tex" id="hero_tex" class="form-control" placeholder="Hero Text" value="{{(isset($settingsArray["hero_tex"]) && $settingsArray["hero_tex"]["value"]) ? $settingsArray["hero_tex"]["value"] : ''}}">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="hero_tex_ar" id="hero_tex_ar" class="form-control" placeholder="Hero Text in arabic" value="{{(isset($settingsArray["hero_tex_ar"]) && $settingsArray["hero_tex_ar"]["value"]) ? $settingsArray["hero_tex_ar"]["value"] : ''}}">
-                </div>
-            </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="form-group">
                     <input type="text" name="facebook_url" id="facebook_url" class="form-control" placeholder="Facebook Url" value="{{(isset($settingsArray["facebook_url"]) && $settingsArray["facebook_url"]["value"]) ? $settingsArray["facebook_url"]["value"] : ''}}">
