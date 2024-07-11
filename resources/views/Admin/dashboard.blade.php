@@ -15,7 +15,7 @@
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#last-section" type="button" role="tab" aria-controls="last-section" aria-selected="false">Last Section Home</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#about-us" type="button" role="tab" aria-controls="about-us" aria-selected="false">About us</button>
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#about_us" type="button" role="tab" aria-controls="about_us" aria-selected="false">About us</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#about_royal" type="button" role="tab" aria-controls="about_royal" aria-selected="false">About Royal</button>
@@ -99,70 +99,74 @@
                     <input type="text" name="package_desc_ar_3" id="package_desc_ar_3" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_desc_ar_3"]) && $settingsArray["package_desc_ar_3"]["value"]) ? $settingsArray["package_desc_ar_3"]["value"] : ''}}">
                 </div>
             </div>
-            <div class="tab-pane fade" id="about-us" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <input type="hidden" name="about_us" v-model="about_us">
+            <div class="tab-pane fade" id="about_us" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="w-100 mb-4 pb-3">
                     <div class="w-100 p-3":key="index">
                         <div>
                             <label for="lang_name" class="form-label">About us *</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div contenteditable="true" :id="'article-content-'" class="form-control" style="min-height: 300px;overflow: auto" ref="about_div">
-                                        {!!(isset($settingsArray["about_us"]) && $settingsArray["about_us"]["value"]) ? $settingsArray["about_us"]["value"] : ''!!}
-                                    </div>
-                                </div>
-                            </div>
+                            <textarea name="about_us" class="form-control" id="about_us" cols="30" rows="10" placeholder="about us" value="{{(isset($settingsArray["about_us"]) && $settingsArray["about_us"]["value"]) ? $settingsArray["about_us"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About us arabic *</label>
+                            <textarea name="about_us_ar" class="form-control" id="about_us_ar" cols="30" rows="10" placeholder="about us arabic" value="{{(isset($settingsArray["about_us_ar"]) && $settingsArray["about_us_ar"]["value"]) ? $settingsArray["about_us_ar"]["value"] : ''}}"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="about_royal" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <input type="hidden" name="about_royal" v-model="about_royal">
                 <div class="w-100 mb-4 pb-3">
                     <div class="w-100 p-3":key="index">
                         <div>
-                            <label for="lang_name" class="form-label">About Royal *</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div contenteditable="true" :id="'article-content-'" class="form-control" style="min-height: 300px;overflow: auto" ref="about_royal_div">
-                                        {!!(isset($settingsArray["about_royal"]) && $settingsArray["about_royal"]["value"]) ? $settingsArray["about_royal"]["value"] : ''!!}
-                                    </div>
-                                </div>
-                            </div>
+                            <label for="lang_name" class="form-label">About royal *</label>
+                            <textarea name="about_royal" class="form-control" id="about_royal" cols="30" rows="10" placeholder="about royal" value="{{(isset($settingsArray["about_royal"]) && $settingsArray["about_royal"]["value"]) ? $settingsArray["about_royal"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">About royal arabic *</label>
+                            <textarea name="about_royal_ar" class="form-control" id="about_royal_ar" cols="30" rows="10" placeholder="about royal arabic" value="{{(isset($settingsArray["about_royal_ar"]) && $settingsArray["about_royal_ar"]["value"]) ? $settingsArray["about_royal_ar"]["value"] : ''}}"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="medical_inssurence" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <input type="hidden" name="medical_inssurence" v-model="medical_inssurence">
                 <div class="w-100 mb-4 pb-3">
                     <div class="w-100 p-3":key="index">
                         <div>
-                            <label for="lang_name" class="form-label">Medical Inssurence *</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div contenteditable="true" :id="'article-content-'" class="form-control" style="min-height: 300px;overflow: auto" ref="medical_inssurence_div">
-                                        {!!(isset($settingsArray["medical_inssurence"]) && $settingsArray["medical_inssurence"]["value"]) ? $settingsArray["medical_inssurence"]["value"] : ''!!}
-                                    </div>
-                                </div>
-                            </div>
+                            <label for="lang_name" class="form-label">Medical inssurence *</label>
+                            <textarea name="medical_inssurence" class="form-control" id="medical_inssurence" cols="30" rows="10" placeholder="Medical inssurence" value="{{(isset($settingsArray["medical_inssurence"]) && $settingsArray["medical_inssurence"]["value"]) ? $settingsArray["medical_inssurence"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">Medical inssurence arabic *</label>
+                            <textarea name="medical_inssurence_ar" class="form-control" id="medical_inssurence_ar" cols="30" rows="10" placeholder="Medical inssurence arabic" value="{{(isset($settingsArray["medical_inssurence_ar"]) && $settingsArray["medical_inssurence_ar"]["value"]) ? $settingsArray["medical_inssurence_ar"]["value"] : ''}}"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="pharmaceutical_analyses" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <input type="hidden" name="pharmaceutical_analyses" v-model="pharmaceutical_analyses">
                 <div class="w-100 mb-4 pb-3">
                     <div class="w-100 p-3":key="index">
                         <div>
                             <label for="lang_name" class="form-label">Pharmaceutical analyses *</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div contenteditable="true" :id="'article-content-'" class="form-control" style="min-height: 300px;overflow: auto" ref="pharmaceutical_analyses_div">
-                                        {!!(isset($settingsArray["pharmaceutical_analyses"]) && $settingsArray["pharmaceutical_analyses"]["value"]) ? $settingsArray["pharmaceutical_analyses"]["value"] : ''!!}
-                                    </div>
-                                </div>
-                            </div>
+                            <textarea name="pharmaceutical_analyses" class="form-control" id="pharmaceutical_analyses" cols="30" rows="10" placeholder="Pharmaceutical analyses" value="{{(isset($settingsArray["pharmaceutical_analyses"]) && $settingsArray["pharmaceutical_analyses"]["value"]) ? $settingsArray["pharmaceutical_analyses"]["value"] : ''}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 mb-4 pb-3">
+                    <div class="w-100 p-3":key="index">
+                        <div>
+                            <label for="lang_name" class="form-label">Pharmaceutical analyses arabic *</label>
+                            <textarea name="pharmaceutical_analyses_ar" class="form-control" id="pharmaceutical_analyses_ar" cols="30" rows="10" placeholder="Pharmaceutical analyses arabic" value="{{(isset($settingsArray["pharmaceutical_analyses_ar"]) && $settingsArray["pharmaceutical_analyses_ar"]["value"]) ? $settingsArray["pharmaceutical_analyses_ar"]["value"] : ''}}"></textarea>
                         </div>
                     </div>
                 </div>
@@ -182,72 +186,11 @@ createApp({
     data() {
         return {
             images_path_main: @json((isset($settingsArray["hero_gallary"]) && $settingsArray["hero_gallary"]["value"]) ? json_decode($settingsArray["hero_gallary"]["value"]) : []),
-            about_us: `{!! (isset($settingsArray["about_us"]) && $settingsArray["about_us"]["value"]) ? $settingsArray["about_us"]["value"] : '' !!}`,
-            about_royal: `{!! (isset($settingsArray["about_royal"]) && $settingsArray["about_royal"]["value"]) ? $settingsArray["about_royal"]["value"] : '' !!}`,
-            medical_inssurence: `{!! (isset($settingsArray["medical_inssurence"]) && $settingsArray["medical_inssurence"]["value"]) ? $settingsArray["medical_inssurence"]["value"] : '' !!}`,
-            pharmaceutical_analyses: `{!! (isset($settingsArray["pharmaceutical_analyses"]) && $settingsArray["pharmaceutical_analyses"]["value"]) ? $settingsArray["pharmaceutical_analyses"]["value"] : '' !!}`,
             images_path: [],
             images: []
         }
     },
-    mounted() {
-    const targetNode = this.$refs.about_div;
-    const config = { childList: true, subtree: true };
-    const callback = (mutationsList) => {
-      for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          this.about_us = targetNode.innerHTML
-        }
-      }
-    };
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, config);
-
-    const targetNode2 = this.$refs.about_royal_div;
-    const config2 = { childList: true, subtree: true };
-    const callback2 = (mutationsList) => {
-      for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          this.about_royal = targetNode2.innerHTML
-        }
-      }
-    };
-    const observer3 = new MutationObserver(callback3);
-    observer3.observe(targetNode3, config3);
-    const targetNode3 = this.$refs.medical_inssurence_div;
-    const config3 = { childList: true, subtree: true };
-    const callback3 = (mutationsList) => {
-      for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          this.medical_inssurence = targetNode3.innerHTML
-        }
-      }
-    };
-    const observer3 = new MutationObserver(callback3);
-    observer3.observe(targetNode3, config3);
-
-    const observer4 = new MutationObserver(callback4);
-    observer4.observe(targetNode4, config4);
-    const targetNode4 = this.$refs.pharmaceutical_analyses_div;
-    const config4 = { childList: true, subtree: true };
-    const callback4 = (mutationsList) => {
-      for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          this.pharmaceutical_analyses = targetNode4.innerHTML
-        }
-      }
-    };
-    const observer4 = new MutationObserver(callback4);
-    observer4.observe(targetNode4, config4);
-    },
     methods: {
-        addService() {
-            console.log("ad");
-            this.services.push("")
-        },
-        removeService(index) {
-            this.services.splice(index, 0)
-        },
         handleChangeImages(event) {
             let files = Array.from(event.target.files)
             files.map(file => {
