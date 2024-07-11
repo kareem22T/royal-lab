@@ -18,6 +18,7 @@ return [
         'cities' => 'Cities',
         'regions' => 'Regions',
         'Appointment_services' => 'Appointment service',
+        'teams' => 'Teams',
         'doctors' => 'Doctors',
         'branches' => 'Branches',
         'categories' => 'Categories',
