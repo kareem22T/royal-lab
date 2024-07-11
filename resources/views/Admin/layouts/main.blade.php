@@ -217,7 +217,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoss"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-box"></i>
-                    <span>@lang("messages.nav.appointment_services")</span>
+                    <span>@lang("messages.nav.Appointment_services")</span>
                 </a>
                 <div id="collapseTwoss" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
