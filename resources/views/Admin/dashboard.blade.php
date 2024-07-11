@@ -38,40 +38,6 @@
                 <div class="form-group">
                     <input type="text" name="hero_tex_ar" id="hero_tex_ar" class="form-control" placeholder="Hero Text in arabic" value="{{(isset($settingsArray["hero_tex_ar"]) && $settingsArray["hero_tex_ar"]["value"]) ? $settingsArray["hero_tex_ar"]["value"] : ''}}">
                 </div>
-                <div class="w-100 form-group">
-                    <label for="gallary" class="form-control"
-                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 140px; font-size: 22px;">Upload
-                    Hero Images*
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-photo-plus" width="55"
-                        height="55" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M15 8h.01"></path>
-                        <path d="M12.5 21h-6.5a3 3 0 0 1 -3 -3v-12a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v6.5"></path>
-                        <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l4 4"></path>
-                        <path d="M14 14l1 -1c.67 -.644 1.45 -.824 2.182 -.54"></path>
-                        <path d="M16 19h6"></path>
-                        <path d="M19 16v6"></path>
-                    </svg>
-                </label>
-                    <input type="file" id="gallary" name="hero_gallary[]" multiple="" class="form-control" @change="handleChangeImages" style="display: none;">
-                </div>
-                <div id="preview-gallery" class="mt-3">
-                    <div class="row" v-if="images_path && images_path.length > 0">
-                       <div v-for="(img, index) in images_path" :key="index"
-                          class="col-lg-3 col-md-6 mb-4">
-                          <img :src="img"
-                             style="width: 100%; height: 250px; object-fit: cover;" alt="gallery">
-                       </div>
-                    </div>
-                    <div class="row" v-if="!images_path || images_path.length == 0">
-                       <div v-for="(img, index) in images_path_main" :key="index"
-                          class="col-lg-3 col-md-6 mb-4">
-                          <img :src="img"
-                             style="width: 100%; height: 250px; object-fit: cover;" alt="gallery">
-                       </div>
-                    </div>
-                 </div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="form-group">
