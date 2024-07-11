@@ -62,6 +62,42 @@
                     <label for="">Second Card</label>
                     <input type="text" name="package_3" id="package_3" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_3"]) && $settingsArray["package_3"]["value"]) ? $settingsArray["package_3"]["value"] : ''}}">
                 </div>
+                <div class="form-group">
+                    <label for="">First Card arabic</label>
+                    <input type="text" name="package_ar_1" id="package_ar_1" class="form-control" placeholder="Package 1" value="{{(isset($settingsArray["package_ar_1"]) && $settingsArray["package_ar_1"]["value"]) ? $settingsArray["package_ar_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Card arabic</label>
+                    <input type="text" name="package_ar_2" id="package_ar_2" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_ar_1"]) && $settingsArray["package_ar_1"]["value"]) ? $settingsArray["package_ar_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Card arabic</label>
+                    <input type="text" name="package_ar_3" id="package_ar_3" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_ar_3"]) && $settingsArray["package_ar_3"]["value"]) ? $settingsArray["package_ar_3"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">First Description</label>
+                    <input type="text" name="package_desc_1" id="package_desc_1" class="form-control" placeholder="Package 1" value="{{(isset($settingsArray["package_desc_1"]) && $settingsArray["package_desc_1"]["value"]) ? $settingsArray["package_desc_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Description</label>
+                    <input type="text" name="package_desc_2" id="package_desc_2" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_desc_1"]) && $settingsArray["package_desc_1"]["value"]) ? $settingsArray["package_desc_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Description</label>
+                    <input type="text" name="package_desc_3" id="package_desc_3" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_desc_3"]) && $settingsArray["package_desc_3"]["value"]) ? $settingsArray["package_desc_3"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">First Description arabic</label>
+                    <input type="text" name="package_desc_ar_1" id="package_desc_ar_1" class="form-control" placeholder="Package 1" value="{{(isset($settingsArray["package_desc_ar_1"]) && $settingsArray["package_desc_ar_1"]["value"]) ? $settingsArray["package_desc_ar_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Description arabic</label>
+                    <input type="text" name="package_desc_ar_2" id="package_desc_ar_2" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_desc_ar_1"]) && $settingsArray["package_desc_ar_1"]["value"]) ? $settingsArray["package_desc_ar_1"]["value"] : ''}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Second Description arabic</label>
+                    <input type="text" name="package_desc_ar_3" id="package_desc_ar_3" class="form-control" placeholder="Package 2" value="{{(isset($settingsArray["package_desc_ar_3"]) && $settingsArray["package_desc_ar_3"]["value"]) ? $settingsArray["package_desc_ar_3"]["value"] : ''}}">
+                </div>
             </div>
             <div class="tab-pane fade" id="about-us" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <input type="hidden" name="about_us" v-model="about_us">
