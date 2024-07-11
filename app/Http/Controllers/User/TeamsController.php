@@ -16,7 +16,6 @@ class TeamsController extends Controller
         $sortWay = $request->sort && $request->sort == "HP" ? "desc" : ( $request->sort && $request->sort  == "LP" ? "asc" : "desc");
 
         $teams = Team::orderBy($sortKey, $sortWay)
-        ->where('type', 1)
         ->get();
 
         return $this->handleResponse(
