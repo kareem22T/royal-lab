@@ -19,16 +19,16 @@ trait SendEmailTrait
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
             $mail->isSMTP(); //Send using SMTP
-            $mail->Host = 'smtp.gmail.com'; //Set the SMTP server to send through
+            $mail->Host = 'mail.royalab-sa.com'; //Set the SMTP server to send through
             $mail->SMTPAuth = true; //Enable SMTP authentication
-            $mail->Username = 'kotbekareem74@gmail.com'; //SMTP username
-            $mail->Password = 'mbbv derk taqj khqd'; //SMTP password
+            $mail->Username = 'info@royalab-sa.com'; //SMTP username
+            $mail->Password = '$pOgZSd$tq.p'; //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
             $mail->Port = 465;
             //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('kotbekareem74@gmail.com', 'Royal Lab');
+            $mail->setFrom('info@royalab-sa.com', 'Royal Lab');
             $mail->addAddress($receiver_mail); //Add a recipient
             $mail->CharSet = 'UTF-8';
 

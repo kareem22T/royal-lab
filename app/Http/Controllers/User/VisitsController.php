@@ -62,7 +62,7 @@ class VisitsController extends Controller
                 $msg_content .= "</h4>";
 
 
-                $this->sendEmail("kotbekareem74@gmail.com", "طلب زيارة جديد", $msg_content);
+                $this->sendEmail("info@royalab-sa.com", "طلب زيارة جديد", $msg_content);
 
             }
 

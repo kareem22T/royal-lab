@@ -68,7 +68,7 @@ class ConsultationController extends Controller
                 $msg_content .= "</h4>";
 
 
-                $this->sendEmail("kotbekareem74@gmail.com", "طلب جديد", $msg_content);
+                $this->sendEmail("info@royalab-sa.com", "طلب جديد", $msg_content);
 
             }
 
