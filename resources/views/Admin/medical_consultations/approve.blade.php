@@ -41,7 +41,7 @@
         <form action="{{ route('admin.medical_consultations.approve.post', ['id' => $medical_consultation->id]) }}" class="btns d-flex gap-3 justify-content-center" method="POST">
             @csrf
             <button type="submit" class="btn btn-success w-50 m-2">
-                @lang("medical_consultations.confirm_button", ['status' => $medical_consultation->status])
+                {{ $order->status === 1 ? __("orders.confirm") : ($order->status === 2 ? __("orders.complete") : '') }}
             </button>
         </form>
     @endif
