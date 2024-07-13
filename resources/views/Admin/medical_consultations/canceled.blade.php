@@ -3,7 +3,7 @@
 @section("title", "Consultations - Canceld")
 
 @php
-    $medical_consultations = App\Models\Consultation::latest()->with("user")->where("status", 0)->paginate(15);
+    $medical_consultations = App\Models\Medical_consultation::latest()->with("user")->where("status", 0)->paginate(15);
 
 @endphp
 

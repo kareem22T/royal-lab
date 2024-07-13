@@ -3,7 +3,7 @@
 @section("title", "Appointments - Confirmed")
 
 @php
-    $medical_consultations = App\Models\Appointment::latest()->with("user")->where("status", 2)->paginate(15);
+    $medical_consultations = App\Models\Medical_consultation::latest()->with("user")->where("status", 2)->paginate(15);
 @endphp
 
 @section("content")
