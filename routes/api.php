@@ -22,6 +22,7 @@ use App\Http\Controllers\User\BranchController;
 use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\JobController;
 use App\Http\Controllers\User\ResultsController;
+use App\Http\Controllers\User\LiveHealthController;
 use App\Http\Controllers\User\TeamsController;
 
 // Users endpoints
@@ -119,6 +120,7 @@ Route::post("/job/apply", [JobController::class, "store"]);
 
 // results endpoints
 Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth:sanctum');
+Route::get('/livehealth-results', [LiveHealthController::class, 'showResults'])->middleware('auth:sanctum');
 
 
 // placeMsg endpoints
