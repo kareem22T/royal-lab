@@ -83,7 +83,7 @@ class ResultsController extends Controller
 
     public function getResultsForUser(Request $request) {
         $user = $request->user();
-        $result = Result::where("user_id", $user->id)->latest()->get();
+        $result = Result::where("user_id", $user->id)->latest()->limit(1)->get();
         if (count($result) > 0) {
             return $this->handleResponse(
                 true,
