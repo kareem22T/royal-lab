@@ -120,6 +120,7 @@ Route::post("/job/apply", [JobController::class, "store"]);
 
 // results endpoints
 Route::get("/user/results", [ResultsController::class, "get"])->middleware('auth:sanctum');
+Route::get("/user/user-results", [ResultsController::class, "getResultsForUser"])->middleware('auth:sanctum');
 Route::get('/livehealth-results', [LiveHealthController::class, 'showResults'])->middleware('auth:sanctum');
 
 
