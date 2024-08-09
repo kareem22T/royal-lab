@@ -22,6 +22,7 @@ class Result extends Model
         "patient_name",
         "bill_id",
         "lab_patient_id",
+        "message",
     ];
 
     public function user()

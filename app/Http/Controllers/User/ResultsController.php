@@ -29,6 +29,30 @@ class ResultsController extends Controller
         
         // Assuming $request->json('pdfBase64') contains the Base64 string
          $data = json_decode($response, true);
+         if (isset($data['Message'])) {
+            return $this->handleResponse(
+                false,
+                "",
+                [],
+                [
+                    "message"=> $data["Message"],
+                ],
+                []
+                );
+         }
+         if (isset($data['message'])) {
+            Result::create([
+                'user_id' => $user->id,
+                'message'=> $data['message'],
+            ]);
+            return $this->handleResponse(
+                false,
+                "",
+                [],
+                [$data['message']],
+                []
+            );
+         }
          $base64String = $data['allReportDetails']['reportDetailsWithBase64'];
          // Decode the Base64 string
          $pdfData = base64_decode($base64String);
@@ -84,24 +108,37 @@ class ResultsController extends Controller
     public function getResultsForUser(Request $request) {
         $user = $request->user();
         $result = Result::where("user_id", $user->id)->latest()->limit(1)->get();
-        if (count($result) > 0) {
+        $message = $result->whereNotNull("message")->first();
+        if (count($result) > 0 && !isset($message)) {
             return $this->handleResponse(
                 true,
                 "",
                 [],
                 [
-                    "result" => $result
+                    "result" => $result,
                 ],
                 []
             );
+        } 
+        if (isset($message)) {
+        return $this->handleResponse(
+            false,
+            "",
+            [],
+            [
+                "message" => $message->message,
+            ],
+            []
+        );
         }
         return $this->handleResponse(
             false,
-            "No Results",
+            "Not Found",
             [],
             [],
             []
         );
+
     }
 
 
