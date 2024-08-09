@@ -57,7 +57,7 @@ class ResultsController extends Controller
          // Decode the Base64 string
          $pdfData = base64_decode($base64String);
         // // Define the full file path
-        $relativePath = 'pdf/results' . $path . '.pdf';
+        $relativePath = 'pdf/'.$user->name. $path . '.pdf';
 
     // Store the file in the public storage directory
         $filePath = Storage::disk('public')->put($relativePath, $pdfData);
