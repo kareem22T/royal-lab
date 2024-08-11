@@ -22,19 +22,12 @@
                 <input type="text" class="form-control" id="name"  placeholder="Service Name in arabic" v-model="name_ar">
             </div>
             <div class="form-group w-100">
+                <label for="bill_id" class="form-label">Bill Id</label>
+                <input type="text" class="form-control" id="bill_id"  placeholder="Bill Id" v-model="bill_id">
+            </div>
+            <div class="form-group w-100">
                 <label for="name" class="form-label">Date</label>
                 <input type="date" name="date" id="date" class="form-control" v-model="date">
-            </div>
-            <div class="form-group w-100">
-                <label for="status" class="form-label">Status</label>
-                <select name="status" id="" class="form-control" v-model="status">
-                    <option value="1">Waiting</option>
-                    <option value="2">Completed</option>
-                </select>
-            </div>
-            <div class="form-group w-100">
-                <label for="status" class="form-label">File</label>
-                <input type="file" name="file" id="file" class="form-control"  @change="getFile">
             </div>
         </div>
 
@@ -57,7 +50,7 @@ createApp({
             name_ar: null,
             status: null,
             date: null,
-            file: null,
+            bill_id: null,
         }
     },
     methods: {
@@ -75,8 +68,7 @@ createApp({
                     service_name: this.name,
                     service_name_ar: this.name_ar,
                     date: this.date,
-                    status: this.status,
-                    file: this.file,
+                    bill_id: this.bill_id,
                     user_id: "{{$user->id}}",
                 },
                 {

@@ -19,9 +19,8 @@
                 <thead>
                     <tr>
                         <th>Result service</th>
-                        <th>Status</th>
                         <th>date</th>
-                        <th>Actions</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,9 +29,6 @@
                             <td>{{ $cat->service_name ?? "Missing" }}</td>
                             <td>{{ $cat->date ?? "Missing" }}</td>
                             <td>{{ $cat->status == 2 ? "Completed" : "Waiting" }}</td>
-                            <td>
-                                <a href="{{ route("admin.result", ["result_id" => $cat->id, "id" => $user->id]) }}" class="btn btn-success">Show</a>
-                            </td>
                         </tr>
                     @endforeach
                 </tbody>
