@@ -90,7 +90,7 @@ class ResultsController extends Controller
             true,
             "",
             [],
-            [$results],
+            $results,
             [
                 1 => "waiting",
                 2 => "completed",
