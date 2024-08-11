@@ -16,6 +16,13 @@ class Result extends Model
         "status",
         "file",
         "user_id",
+        "gender",
+        "age",
+        "contact_no",
+        "patient_name",
+        "bill_id",
+        "lab_patient_id",
+        "message",
     ];
 
     public function user()
